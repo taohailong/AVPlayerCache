@@ -11,6 +11,16 @@
 		1B58B214B54AB3E3964D1F57EE58276B /* Pods-AVPlayerCacheLibrary_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F295AB4104D4E0D99986B5E0F6B2B /* Pods-AVPlayerCacheLibrary_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1BB7D770F8DB229E0F40668939C049FF /* Pods-AVPlayerCacheLibrary_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7B6235028DBF45E841BB2128F172D13 /* Pods-AVPlayerCacheLibrary_Example-dummy.m */; };
 		217C9071C617CA704B34F195DE869832 /* AVPlayerCacheLibrary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5795518C0D090336F6BA6C0B1F2D0C94 /* AVPlayerCacheLibrary-dummy.m */; };
+		29484FC81E6047AB002185BB /* TVideoDownOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 29484FBE1E6047AB002185BB /* TVideoDownOperation.h */; };
+		29484FC91E6047AB002185BB /* TVideoDownOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29484FBF1E6047AB002185BB /* TVideoDownOperation.m */; };
+		29484FCA1E6047AB002185BB /* TVideoDownQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 29484FC01E6047AB002185BB /* TVideoDownQueue.h */; };
+		29484FCB1E6047AB002185BB /* TVideoDownQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 29484FC11E6047AB002185BB /* TVideoDownQueue.m */; };
+		29484FCC1E6047AB002185BB /* TVideoFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 29484FC21E6047AB002185BB /* TVideoFileManager.h */; };
+		29484FCD1E6047AB002185BB /* TVideoFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29484FC31E6047AB002185BB /* TVideoFileManager.m */; };
+		29484FCE1E6047AB002185BB /* TVideoLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 29484FC41E6047AB002185BB /* TVideoLoader.h */; };
+		29484FCF1E6047AB002185BB /* TVideoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 29484FC51E6047AB002185BB /* TVideoLoader.m */; };
+		29484FD01E6047AB002185BB /* TVideoLoadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 29484FC61E6047AB002185BB /* TVideoLoadManager.h */; };
+		29484FD11E6047AB002185BB /* TVideoLoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29484FC71E6047AB002185BB /* TVideoLoadManager.m */; };
 		4224A6B6CED71C5984060E4B33B48A77 /* Pods-AVPlayerCacheLibrary_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F5EEB122D69144D58BD5BAB5CFE1D3 /* Pods-AVPlayerCacheLibrary_Tests-dummy.m */; };
 		5BCF0BCA7A97D5E76BF4551A6564EB8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		721ECF1F4F76346DA3E2623B020C05C1 /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DAF32F8B7B1DF0DC1FE73FC84CB2DC9 /* ReplaceMe.m */; };
@@ -31,33 +41,43 @@
 
 /* Begin PBXFileReference section */
 		0130B8F8DCEE876F45E8C44737EF5334 /* Pods-AVPlayerCacheLibrary_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AVPlayerCacheLibrary_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		13095B9C2A6D98322893E4988A4EB252 /* AVPlayerCacheLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AVPlayerCacheLibrary.framework; path = AVPlayerCacheLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13095B9C2A6D98322893E4988A4EB252 /* AVPlayerCacheLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AVPlayerCacheLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C72B1CB344525D201DDB5D454CAEB1B /* Pods-AVPlayerCacheLibrary_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AVPlayerCacheLibrary_Example.release.xcconfig"; sourceTree = "<group>"; };
 		1DAF32F8B7B1DF0DC1FE73FC84CB2DC9 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
 		20F5329723388244095039CB26D39A40 /* Pods-AVPlayerCacheLibrary_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AVPlayerCacheLibrary_Example-resources.sh"; sourceTree = "<group>"; };
 		225FAD93BB6663FE718CAA7617709732 /* Pods-AVPlayerCacheLibrary_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AVPlayerCacheLibrary_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2540822E2FA479D3B54543294772F9A8 /* Pods-AVPlayerCacheLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AVPlayerCacheLibrary_Tests.modulemap"; sourceTree = "<group>"; };
+		2540822E2FA479D3B54543294772F9A8 /* Pods-AVPlayerCacheLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AVPlayerCacheLibrary_Tests.modulemap"; sourceTree = "<group>"; };
+		29484FBE1E6047AB002185BB /* TVideoDownOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVideoDownOperation.h; sourceTree = "<group>"; };
+		29484FBF1E6047AB002185BB /* TVideoDownOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVideoDownOperation.m; sourceTree = "<group>"; };
+		29484FC01E6047AB002185BB /* TVideoDownQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVideoDownQueue.h; sourceTree = "<group>"; };
+		29484FC11E6047AB002185BB /* TVideoDownQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVideoDownQueue.m; sourceTree = "<group>"; };
+		29484FC21E6047AB002185BB /* TVideoFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVideoFileManager.h; sourceTree = "<group>"; };
+		29484FC31E6047AB002185BB /* TVideoFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVideoFileManager.m; sourceTree = "<group>"; };
+		29484FC41E6047AB002185BB /* TVideoLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVideoLoader.h; sourceTree = "<group>"; };
+		29484FC51E6047AB002185BB /* TVideoLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVideoLoader.m; sourceTree = "<group>"; };
+		29484FC61E6047AB002185BB /* TVideoLoadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVideoLoadManager.h; sourceTree = "<group>"; };
+		29484FC71E6047AB002185BB /* TVideoLoadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVideoLoadManager.m; sourceTree = "<group>"; };
 		325F295AB4104D4E0D99986B5E0F6B2B /* Pods-AVPlayerCacheLibrary_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AVPlayerCacheLibrary_Tests-umbrella.h"; sourceTree = "<group>"; };
 		3538CAA6B03CBFF2BAF910671B89CC55 /* Pods-AVPlayerCacheLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AVPlayerCacheLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		3B8E7DEF39F108385958D426FE9E4FC6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C48E7A87FB23008F7FC3BDB6B53C507 /* AVPlayerCacheLibrary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AVPlayerCacheLibrary-prefix.pch"; sourceTree = "<group>"; };
-		472991DB7968CA363ADEBBE4FDC99786 /* Pods_AVPlayerCacheLibrary_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AVPlayerCacheLibrary_Example.framework; path = "Pods-AVPlayerCacheLibrary_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		513C4F3E7DF68887B3B26DC6DBDBBB24 /* Pods-AVPlayerCacheLibrary_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AVPlayerCacheLibrary_Example.modulemap"; sourceTree = "<group>"; };
+		472991DB7968CA363ADEBBE4FDC99786 /* Pods_AVPlayerCacheLibrary_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AVPlayerCacheLibrary_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		513C4F3E7DF68887B3B26DC6DBDBBB24 /* Pods-AVPlayerCacheLibrary_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AVPlayerCacheLibrary_Example.modulemap"; sourceTree = "<group>"; };
 		5795518C0D090336F6BA6C0B1F2D0C94 /* AVPlayerCacheLibrary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AVPlayerCacheLibrary-dummy.m"; sourceTree = "<group>"; };
 		667421D72E06ED90940BDBBC831FC46E /* Pods-AVPlayerCacheLibrary_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AVPlayerCacheLibrary_Tests-resources.sh"; sourceTree = "<group>"; };
 		75B351DCBCED384CE9FB6C10DF59F9EA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84CF08BAADD1DD8888E38781E97EE798 /* Pods-AVPlayerCacheLibrary_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AVPlayerCacheLibrary_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DF26FCC1E976BC4C72AD8846B6B2FFC /* Pods-AVPlayerCacheLibrary_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AVPlayerCacheLibrary_Example-frameworks.sh"; sourceTree = "<group>"; };
 		A31AE5D35FA0004A89AAAEA623627218 /* Pods-AVPlayerCacheLibrary_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AVPlayerCacheLibrary_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		A656542F31BD6572227E14B33AE6ED05 /* AVPlayerCacheLibrary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AVPlayerCacheLibrary.modulemap; sourceTree = "<group>"; };
+		A656542F31BD6572227E14B33AE6ED05 /* AVPlayerCacheLibrary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AVPlayerCacheLibrary.modulemap; sourceTree = "<group>"; };
 		B4E621DEAEF98526AD61901F89C3C48B /* Pods-AVPlayerCacheLibrary_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AVPlayerCacheLibrary_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B7B6235028DBF45E841BB2128F172D13 /* Pods-AVPlayerCacheLibrary_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AVPlayerCacheLibrary_Example-dummy.m"; sourceTree = "<group>"; };
 		BD25E863778BC52B085FB426D90C43FB /* Pods-AVPlayerCacheLibrary_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AVPlayerCacheLibrary_Example-umbrella.h"; sourceTree = "<group>"; };
 		C2F5EEB122D69144D58BD5BAB5CFE1D3 /* Pods-AVPlayerCacheLibrary_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AVPlayerCacheLibrary_Tests-dummy.m"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CE46284EB11CD22C9AA0C584276A57E8 /* AVPlayerCacheLibrary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AVPlayerCacheLibrary-umbrella.h"; sourceTree = "<group>"; };
-		D080BC9C972300225503DF5946D4F5C8 /* Pods_AVPlayerCacheLibrary_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AVPlayerCacheLibrary_Tests.framework; path = "Pods-AVPlayerCacheLibrary_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D080BC9C972300225503DF5946D4F5C8 /* Pods_AVPlayerCacheLibrary_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AVPlayerCacheLibrary_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7372FB0F9F377CA7F935A9093515C5F /* AVPlayerCacheLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AVPlayerCacheLibrary.xcconfig; sourceTree = "<group>"; };
 		DD735400EFCB8B905301336D7109767E /* Pods-AVPlayerCacheLibrary_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AVPlayerCacheLibrary_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		F57C6383A397995218BCF946DB431A03 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,7 +127,6 @@
 			children = (
 				EE8A0E61CF0F6AD458BA1F3DCECFBCC7 /* Classes */,
 			);
-			name = AVPlayerCacheLibrary;
 			path = AVPlayerCacheLibrary;
 			sourceTree = "<group>";
 		};
@@ -200,9 +219,18 @@
 		EE8A0E61CF0F6AD458BA1F3DCECFBCC7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				29484FBE1E6047AB002185BB /* TVideoDownOperation.h */,
+				29484FBF1E6047AB002185BB /* TVideoDownOperation.m */,
+				29484FC01E6047AB002185BB /* TVideoDownQueue.h */,
+				29484FC11E6047AB002185BB /* TVideoDownQueue.m */,
+				29484FC21E6047AB002185BB /* TVideoFileManager.h */,
+				29484FC31E6047AB002185BB /* TVideoFileManager.m */,
+				29484FC41E6047AB002185BB /* TVideoLoader.h */,
+				29484FC51E6047AB002185BB /* TVideoLoader.m */,
+				29484FC61E6047AB002185BB /* TVideoLoadManager.h */,
+				29484FC71E6047AB002185BB /* TVideoLoadManager.m */,
 				1DAF32F8B7B1DF0DC1FE73FC84CB2DC9 /* ReplaceMe.m */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -247,7 +275,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29484FC81E6047AB002185BB /* TVideoDownOperation.h in Headers */,
+				29484FCA1E6047AB002185BB /* TVideoDownQueue.h in Headers */,
+				29484FD01E6047AB002185BB /* TVideoLoadManager.h in Headers */,
+				29484FCC1E6047AB002185BB /* TVideoFileManager.h in Headers */,
 				FA3AD243BBF2935CB30EC5452FFFBCA1 /* AVPlayerCacheLibrary-umbrella.h in Headers */,
+				29484FCE1E6047AB002185BB /* TVideoLoader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,8 +372,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29484FC91E6047AB002185BB /* TVideoDownOperation.m in Sources */,
+				29484FCD1E6047AB002185BB /* TVideoFileManager.m in Sources */,
+				29484FCF1E6047AB002185BB /* TVideoLoader.m in Sources */,
+				29484FD11E6047AB002185BB /* TVideoLoadManager.m in Sources */,
 				217C9071C617CA704B34F195DE869832 /* AVPlayerCacheLibrary-dummy.m in Sources */,
 				721ECF1F4F76346DA3E2623B020C05C1 /* ReplaceMe.m in Sources */,
+				29484FCB1E6047AB002185BB /* TVideoDownQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

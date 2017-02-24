@@ -1,0 +1,22 @@
+{
+  "name": "AVPlayerCacheLibrary",
+  "version": "0.1.0",
+  "summary": "A short description of AVPlayerCacheLibrary.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/hailong9/AVPlayerCacheLibrary",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "hailong9": "hailong9@staff.sina.com.cn"
+  },
+  "source": {
+    "git": "https://github.com/hailong9/AVPlayerCacheLibrary.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "AVPlayerCacheLibrary/Classes/**/*"
+}

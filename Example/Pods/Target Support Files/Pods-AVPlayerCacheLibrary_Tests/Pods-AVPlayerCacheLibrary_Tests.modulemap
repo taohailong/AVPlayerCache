@@ -1,0 +1,6 @@
+framework module Pods_AVPlayerCacheLibrary_Tests {
+  umbrella header "Pods-AVPlayerCacheLibrary_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

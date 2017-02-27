@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07692DB7BDDF52E05F52484C6062DE26 /* AVPlayerCacheLibrary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE46284EB11CD22C9AA0C584276A57E8 /* AVPlayerCacheLibrary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15D49D0B3703E76EFCF777BF82633821 /* Pods-AVPlayerCacheLibrary_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BD25E863778BC52B085FB426D90C43FB /* Pods-AVPlayerCacheLibrary_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B58B214B54AB3E3964D1F57EE58276B /* Pods-AVPlayerCacheLibrary_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 325F295AB4104D4E0D99986B5E0F6B2B /* Pods-AVPlayerCacheLibrary_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1BB7D770F8DB229E0F40668939C049FF /* Pods-AVPlayerCacheLibrary_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7B6235028DBF45E841BB2128F172D13 /* Pods-AVPlayerCacheLibrary_Example-dummy.m */; };
-		217C9071C617CA704B34F195DE869832 /* AVPlayerCacheLibrary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5795518C0D090336F6BA6C0B1F2D0C94 /* AVPlayerCacheLibrary-dummy.m */; };
-		29484FC81E6047AB002185BB /* TVideoDownOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 29484FBE1E6047AB002185BB /* TVideoDownOperation.h */; };
-		29484FC91E6047AB002185BB /* TVideoDownOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29484FBF1E6047AB002185BB /* TVideoDownOperation.m */; };
-		29484FCA1E6047AB002185BB /* TVideoDownQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 29484FC01E6047AB002185BB /* TVideoDownQueue.h */; };
-		29484FCB1E6047AB002185BB /* TVideoDownQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 29484FC11E6047AB002185BB /* TVideoDownQueue.m */; };
-		29484FCC1E6047AB002185BB /* TVideoFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 29484FC21E6047AB002185BB /* TVideoFileManager.h */; };
-		29484FCD1E6047AB002185BB /* TVideoFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29484FC31E6047AB002185BB /* TVideoFileManager.m */; };
-		29484FCE1E6047AB002185BB /* TVideoLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 29484FC41E6047AB002185BB /* TVideoLoader.h */; };
-		29484FCF1E6047AB002185BB /* TVideoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 29484FC51E6047AB002185BB /* TVideoLoader.m */; };
-		29484FD01E6047AB002185BB /* TVideoLoadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 29484FC61E6047AB002185BB /* TVideoLoadManager.h */; };
-		29484FD11E6047AB002185BB /* TVideoLoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29484FC71E6047AB002185BB /* TVideoLoadManager.m */; };
 		4224A6B6CED71C5984060E4B33B48A77 /* Pods-AVPlayerCacheLibrary_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F5EEB122D69144D58BD5BAB5CFE1D3 /* Pods-AVPlayerCacheLibrary_Tests-dummy.m */; };
 		5BCF0BCA7A97D5E76BF4551A6564EB8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		721ECF1F4F76346DA3E2623B020C05C1 /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DAF32F8B7B1DF0DC1FE73FC84CB2DC9 /* ReplaceMe.m */; };
+		5D50533D9B4D3FCBBACA3F0430068CF8 /* TVideoDownOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A69E109BD29CFA176E3FB00FF1E1318 /* TVideoDownOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		679BE2C2F12379DFF217689089F4B86D /* TVideoLoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 661390DC306FB691E878958D6125AC3E /* TVideoLoadManager.m */; };
+		7C7F33472C0C47211662FFAFA4892590 /* TVideoFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FEC9DE724A23A75B2C9D8FFB25350456 /* TVideoFileManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		89BDD11A475E3CEE9AB84999325C7DA9 /* TVideoFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 27434DBCAFB05AA1C9BEA59ABEE3EC97 /* TVideoFileManager.m */; };
+		8A5CB20CE23AB6E01D22C24D3546315B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		983F921F956D85FBF0682CAA135067A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		F5166825E6289FFC5E2456F7DD00DABF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		FA3AD243BBF2935CB30EC5452FFFBCA1 /* AVPlayerCacheLibrary-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE46284EB11CD22C9AA0C584276A57E8 /* AVPlayerCacheLibrary-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9B2F63545CF3355C33EBF402E1259C5B /* TVideoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 58010B21545C194FF2B0AB5E6324F53D /* TVideoLoader.m */; };
+		A12EF0CA2DBDDA276E425AFE8EF33FA1 /* AVPlayerCacheLibrary-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5795518C0D090336F6BA6C0B1F2D0C94 /* AVPlayerCacheLibrary-dummy.m */; };
+		ACF11DADA50A8EDB08E1349370EF574C /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = B70CBDF47D552D2BC9FDE23009E0C9F3 /* ReplaceMe.m */; };
+		BDCA1A578CD5E062A3D74BF2A448463B /* TVideoDownQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CD39C791471336F5EB35BAB7BDD58419 /* TVideoDownQueue.m */; };
+		E49DE7ED859B063B80EE962BB649AF87 /* TVideoLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = FF4A855031B0A3D944A0D6AFDB6D96C5 /* TVideoLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EECA56CFF4228FFC8A96FEC502A66182 /* TVideoDownQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 272BEC4C15958B4CF74BAD96E8905B91 /* TVideoDownQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F14F581526D788DD6C653E62BD34BC55 /* TVideoDownOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EBFE051FB621285A392F7E92440398B /* TVideoDownOperation.m */; };
+		F3F9DBE4B2DEB80246BD1333397F5469 /* TVideoLoadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 614099CFB004CC3D8AE610ED7E09C520 /* TVideoLoadManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,62 +34,62 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 77DE40E949DC9A6F0030BE559C22DD7E;
+			remoteGlobalIDString = 55546BECA6642EB2A906E93E0F16B86D;
 			remoteInfo = AVPlayerCacheLibrary;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0130B8F8DCEE876F45E8C44737EF5334 /* Pods-AVPlayerCacheLibrary_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AVPlayerCacheLibrary_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		13095B9C2A6D98322893E4988A4EB252 /* AVPlayerCacheLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AVPlayerCacheLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13095B9C2A6D98322893E4988A4EB252 /* AVPlayerCacheLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AVPlayerCacheLibrary.framework; path = AVPlayerCacheLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C72B1CB344525D201DDB5D454CAEB1B /* Pods-AVPlayerCacheLibrary_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AVPlayerCacheLibrary_Example.release.xcconfig"; sourceTree = "<group>"; };
-		1DAF32F8B7B1DF0DC1FE73FC84CB2DC9 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
 		20F5329723388244095039CB26D39A40 /* Pods-AVPlayerCacheLibrary_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AVPlayerCacheLibrary_Example-resources.sh"; sourceTree = "<group>"; };
 		225FAD93BB6663FE718CAA7617709732 /* Pods-AVPlayerCacheLibrary_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AVPlayerCacheLibrary_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		2540822E2FA479D3B54543294772F9A8 /* Pods-AVPlayerCacheLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AVPlayerCacheLibrary_Tests.modulemap"; sourceTree = "<group>"; };
-		29484FBE1E6047AB002185BB /* TVideoDownOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVideoDownOperation.h; sourceTree = "<group>"; };
-		29484FBF1E6047AB002185BB /* TVideoDownOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVideoDownOperation.m; sourceTree = "<group>"; };
-		29484FC01E6047AB002185BB /* TVideoDownQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVideoDownQueue.h; sourceTree = "<group>"; };
-		29484FC11E6047AB002185BB /* TVideoDownQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVideoDownQueue.m; sourceTree = "<group>"; };
-		29484FC21E6047AB002185BB /* TVideoFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVideoFileManager.h; sourceTree = "<group>"; };
-		29484FC31E6047AB002185BB /* TVideoFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVideoFileManager.m; sourceTree = "<group>"; };
-		29484FC41E6047AB002185BB /* TVideoLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVideoLoader.h; sourceTree = "<group>"; };
-		29484FC51E6047AB002185BB /* TVideoLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVideoLoader.m; sourceTree = "<group>"; };
-		29484FC61E6047AB002185BB /* TVideoLoadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVideoLoadManager.h; sourceTree = "<group>"; };
-		29484FC71E6047AB002185BB /* TVideoLoadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVideoLoadManager.m; sourceTree = "<group>"; };
+		2540822E2FA479D3B54543294772F9A8 /* Pods-AVPlayerCacheLibrary_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AVPlayerCacheLibrary_Tests.modulemap"; sourceTree = "<group>"; };
+		272BEC4C15958B4CF74BAD96E8905B91 /* TVideoDownQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TVideoDownQueue.h; sourceTree = "<group>"; };
+		27434DBCAFB05AA1C9BEA59ABEE3EC97 /* TVideoFileManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TVideoFileManager.m; sourceTree = "<group>"; };
 		325F295AB4104D4E0D99986B5E0F6B2B /* Pods-AVPlayerCacheLibrary_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AVPlayerCacheLibrary_Tests-umbrella.h"; sourceTree = "<group>"; };
 		3538CAA6B03CBFF2BAF910671B89CC55 /* Pods-AVPlayerCacheLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AVPlayerCacheLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		3B8E7DEF39F108385958D426FE9E4FC6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C48E7A87FB23008F7FC3BDB6B53C507 /* AVPlayerCacheLibrary-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AVPlayerCacheLibrary-prefix.pch"; sourceTree = "<group>"; };
-		472991DB7968CA363ADEBBE4FDC99786 /* Pods_AVPlayerCacheLibrary_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AVPlayerCacheLibrary_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		513C4F3E7DF68887B3B26DC6DBDBBB24 /* Pods-AVPlayerCacheLibrary_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AVPlayerCacheLibrary_Example.modulemap"; sourceTree = "<group>"; };
+		472991DB7968CA363ADEBBE4FDC99786 /* Pods_AVPlayerCacheLibrary_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AVPlayerCacheLibrary_Example.framework; path = "Pods-AVPlayerCacheLibrary_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		513C4F3E7DF68887B3B26DC6DBDBBB24 /* Pods-AVPlayerCacheLibrary_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AVPlayerCacheLibrary_Example.modulemap"; sourceTree = "<group>"; };
 		5795518C0D090336F6BA6C0B1F2D0C94 /* AVPlayerCacheLibrary-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AVPlayerCacheLibrary-dummy.m"; sourceTree = "<group>"; };
+		58010B21545C194FF2B0AB5E6324F53D /* TVideoLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TVideoLoader.m; sourceTree = "<group>"; };
+		5A69E109BD29CFA176E3FB00FF1E1318 /* TVideoDownOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TVideoDownOperation.h; sourceTree = "<group>"; };
+		5EBFE051FB621285A392F7E92440398B /* TVideoDownOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TVideoDownOperation.m; sourceTree = "<group>"; };
+		614099CFB004CC3D8AE610ED7E09C520 /* TVideoLoadManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TVideoLoadManager.h; sourceTree = "<group>"; };
+		661390DC306FB691E878958D6125AC3E /* TVideoLoadManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TVideoLoadManager.m; sourceTree = "<group>"; };
 		667421D72E06ED90940BDBBC831FC46E /* Pods-AVPlayerCacheLibrary_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AVPlayerCacheLibrary_Tests-resources.sh"; sourceTree = "<group>"; };
 		75B351DCBCED384CE9FB6C10DF59F9EA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84CF08BAADD1DD8888E38781E97EE798 /* Pods-AVPlayerCacheLibrary_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AVPlayerCacheLibrary_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DF26FCC1E976BC4C72AD8846B6B2FFC /* Pods-AVPlayerCacheLibrary_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AVPlayerCacheLibrary_Example-frameworks.sh"; sourceTree = "<group>"; };
 		A31AE5D35FA0004A89AAAEA623627218 /* Pods-AVPlayerCacheLibrary_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AVPlayerCacheLibrary_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		A656542F31BD6572227E14B33AE6ED05 /* AVPlayerCacheLibrary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AVPlayerCacheLibrary.modulemap; sourceTree = "<group>"; };
+		A656542F31BD6572227E14B33AE6ED05 /* AVPlayerCacheLibrary.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AVPlayerCacheLibrary.modulemap; sourceTree = "<group>"; };
 		B4E621DEAEF98526AD61901F89C3C48B /* Pods-AVPlayerCacheLibrary_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AVPlayerCacheLibrary_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B70CBDF47D552D2BC9FDE23009E0C9F3 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ReplaceMe.m; sourceTree = "<group>"; };
 		B7B6235028DBF45E841BB2128F172D13 /* Pods-AVPlayerCacheLibrary_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AVPlayerCacheLibrary_Example-dummy.m"; sourceTree = "<group>"; };
 		BD25E863778BC52B085FB426D90C43FB /* Pods-AVPlayerCacheLibrary_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AVPlayerCacheLibrary_Example-umbrella.h"; sourceTree = "<group>"; };
 		C2F5EEB122D69144D58BD5BAB5CFE1D3 /* Pods-AVPlayerCacheLibrary_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AVPlayerCacheLibrary_Tests-dummy.m"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CD39C791471336F5EB35BAB7BDD58419 /* TVideoDownQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TVideoDownQueue.m; sourceTree = "<group>"; };
 		CE46284EB11CD22C9AA0C584276A57E8 /* AVPlayerCacheLibrary-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AVPlayerCacheLibrary-umbrella.h"; sourceTree = "<group>"; };
-		D080BC9C972300225503DF5946D4F5C8 /* Pods_AVPlayerCacheLibrary_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AVPlayerCacheLibrary_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D080BC9C972300225503DF5946D4F5C8 /* Pods_AVPlayerCacheLibrary_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AVPlayerCacheLibrary_Tests.framework; path = "Pods-AVPlayerCacheLibrary_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7372FB0F9F377CA7F935A9093515C5F /* AVPlayerCacheLibrary.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AVPlayerCacheLibrary.xcconfig; sourceTree = "<group>"; };
 		DD735400EFCB8B905301336D7109767E /* Pods-AVPlayerCacheLibrary_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AVPlayerCacheLibrary_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		F57C6383A397995218BCF946DB431A03 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5F259DFA01D5B30C98DB6594C174393 /* Pods-AVPlayerCacheLibrary_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AVPlayerCacheLibrary_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		FEC9DE724A23A75B2C9D8FFB25350456 /* TVideoFileManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TVideoFileManager.h; sourceTree = "<group>"; };
+		FF4A855031B0A3D944A0D6AFDB6D96C5 /* TVideoLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TVideoLoader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AB7E9EE3B07F95DE7347A25B2616AB16 /* Frameworks */ = {
+		05C2A51BC3396CC8DBF3F1AA4D0FAF8B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5166825E6289FFC5E2456F7DD00DABF /* Foundation.framework in Frameworks */,
+				8A5CB20CE23AB6E01D22C24D3546315B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,18 +115,19 @@
 		063B2415893857BD9D74ACFE73126FE5 /* AVPlayerCacheLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				232E97D2A333710C6659C8BF92387742 /* AVPlayerCacheLibrary */,
+				3A9A92F273CC58FE927BEF2135A0222C /* AVPlayerCacheLibrary */,
 				C5732DCB8C4E5B16A48438A0E54EC1C5 /* Support Files */,
 			);
 			name = AVPlayerCacheLibrary;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		232E97D2A333710C6659C8BF92387742 /* AVPlayerCacheLibrary */ = {
+		3A9A92F273CC58FE927BEF2135A0222C /* AVPlayerCacheLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				EE8A0E61CF0F6AD458BA1F3DCECFBCC7 /* Classes */,
+				ECD00F064EF855AF51E266AD654C14DF /* Classes */,
 			);
+			name = AVPlayerCacheLibrary;
 			path = AVPlayerCacheLibrary;
 			sourceTree = "<group>";
 		};
@@ -216,21 +217,22 @@
 			path = "Example/Pods/Target Support Files/AVPlayerCacheLibrary";
 			sourceTree = "<group>";
 		};
-		EE8A0E61CF0F6AD458BA1F3DCECFBCC7 /* Classes */ = {
+		ECD00F064EF855AF51E266AD654C14DF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				29484FBE1E6047AB002185BB /* TVideoDownOperation.h */,
-				29484FBF1E6047AB002185BB /* TVideoDownOperation.m */,
-				29484FC01E6047AB002185BB /* TVideoDownQueue.h */,
-				29484FC11E6047AB002185BB /* TVideoDownQueue.m */,
-				29484FC21E6047AB002185BB /* TVideoFileManager.h */,
-				29484FC31E6047AB002185BB /* TVideoFileManager.m */,
-				29484FC41E6047AB002185BB /* TVideoLoader.h */,
-				29484FC51E6047AB002185BB /* TVideoLoader.m */,
-				29484FC61E6047AB002185BB /* TVideoLoadManager.h */,
-				29484FC71E6047AB002185BB /* TVideoLoadManager.m */,
-				1DAF32F8B7B1DF0DC1FE73FC84CB2DC9 /* ReplaceMe.m */,
+				B70CBDF47D552D2BC9FDE23009E0C9F3 /* ReplaceMe.m */,
+				5A69E109BD29CFA176E3FB00FF1E1318 /* TVideoDownOperation.h */,
+				5EBFE051FB621285A392F7E92440398B /* TVideoDownOperation.m */,
+				272BEC4C15958B4CF74BAD96E8905B91 /* TVideoDownQueue.h */,
+				CD39C791471336F5EB35BAB7BDD58419 /* TVideoDownQueue.m */,
+				FEC9DE724A23A75B2C9D8FFB25350456 /* TVideoFileManager.h */,
+				27434DBCAFB05AA1C9BEA59ABEE3EC97 /* TVideoFileManager.m */,
+				FF4A855031B0A3D944A0D6AFDB6D96C5 /* TVideoLoader.h */,
+				58010B21545C194FF2B0AB5E6324F53D /* TVideoLoader.m */,
+				614099CFB004CC3D8AE610ED7E09C520 /* TVideoLoadManager.h */,
+				661390DC306FB691E878958D6125AC3E /* TVideoLoadManager.m */,
 			);
+			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -263,6 +265,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		736A7397656148C3BCD7B13D4B31A327 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07692DB7BDDF52E05F52484C6062DE26 /* AVPlayerCacheLibrary-umbrella.h in Headers */,
+				5D50533D9B4D3FCBBACA3F0430068CF8 /* TVideoDownOperation.h in Headers */,
+				EECA56CFF4228FFC8A96FEC502A66182 /* TVideoDownQueue.h in Headers */,
+				7C7F33472C0C47211662FFAFA4892590 /* TVideoFileManager.h in Headers */,
+				E49DE7ED859B063B80EE962BB649AF87 /* TVideoLoader.h in Headers */,
+				F3F9DBE4B2DEB80246BD1333397F5469 /* TVideoLoadManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		76EE857771E1D8C5902A223428083C9D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,29 +286,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		791366A955504EBE4FA8FFCF31452A73 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29484FC81E6047AB002185BB /* TVideoDownOperation.h in Headers */,
-				29484FCA1E6047AB002185BB /* TVideoDownQueue.h in Headers */,
-				29484FD01E6047AB002185BB /* TVideoLoadManager.h in Headers */,
-				29484FCC1E6047AB002185BB /* TVideoFileManager.h in Headers */,
-				FA3AD243BBF2935CB30EC5452FFFBCA1 /* AVPlayerCacheLibrary-umbrella.h in Headers */,
-				29484FCE1E6047AB002185BB /* TVideoLoader.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		77DE40E949DC9A6F0030BE559C22DD7E /* AVPlayerCacheLibrary */ = {
+		55546BECA6642EB2A906E93E0F16B86D /* AVPlayerCacheLibrary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60FCECD2D9B4CD5A8D7CE60029A23B12 /* Build configuration list for PBXNativeTarget "AVPlayerCacheLibrary" */;
+			buildConfigurationList = 8646D63A983E32DB48FD3E2AD7C07707 /* Build configuration list for PBXNativeTarget "AVPlayerCacheLibrary" */;
 			buildPhases = (
-				4398B89D9717EE509B2953F87AC52F3E /* Sources */,
-				AB7E9EE3B07F95DE7347A25B2616AB16 /* Frameworks */,
-				791366A955504EBE4FA8FFCF31452A73 /* Headers */,
+				E17BE2B46C52F629B3976D20EC459F07 /* Sources */,
+				05C2A51BC3396CC8DBF3F1AA4D0FAF8B /* Frameworks */,
+				736A7397656148C3BCD7B13D4B31A327 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -360,7 +362,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				77DE40E949DC9A6F0030BE559C22DD7E /* AVPlayerCacheLibrary */,
+				55546BECA6642EB2A906E93E0F16B86D /* AVPlayerCacheLibrary */,
 				FF852645389FC6867053B5B7B77C2EE7 /* Pods-AVPlayerCacheLibrary_Example */,
 				AAF2912EE4116EE414D899F45A7B0E00 /* Pods-AVPlayerCacheLibrary_Tests */,
 			);
@@ -368,25 +370,25 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4398B89D9717EE509B2953F87AC52F3E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29484FC91E6047AB002185BB /* TVideoDownOperation.m in Sources */,
-				29484FCD1E6047AB002185BB /* TVideoFileManager.m in Sources */,
-				29484FCF1E6047AB002185BB /* TVideoLoader.m in Sources */,
-				29484FD11E6047AB002185BB /* TVideoLoadManager.m in Sources */,
-				217C9071C617CA704B34F195DE869832 /* AVPlayerCacheLibrary-dummy.m in Sources */,
-				721ECF1F4F76346DA3E2623B020C05C1 /* ReplaceMe.m in Sources */,
-				29484FCB1E6047AB002185BB /* TVideoDownQueue.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4A8F2544455950A552E36DC120757231 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4224A6B6CED71C5984060E4B33B48A77 /* Pods-AVPlayerCacheLibrary_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E17BE2B46C52F629B3976D20EC459F07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A12EF0CA2DBDDA276E425AFE8EF33FA1 /* AVPlayerCacheLibrary-dummy.m in Sources */,
+				ACF11DADA50A8EDB08E1349370EF574C /* ReplaceMe.m in Sources */,
+				F14F581526D788DD6C653E62BD34BC55 /* TVideoDownOperation.m in Sources */,
+				BDCA1A578CD5E062A3D74BF2A448463B /* TVideoDownQueue.m in Sources */,
+				89BDD11A475E3CEE9AB84999325C7DA9 /* TVideoFileManager.m in Sources */,
+				9B2F63545CF3355C33EBF402E1259C5B /* TVideoLoader.m in Sources */,
+				679BE2C2F12379DFF217689089F4B86D /* TVideoLoadManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,13 +406,13 @@
 		333BB48B102A84D7948E00D273AB4412 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AVPlayerCacheLibrary;
-			target = 77DE40E949DC9A6F0030BE559C22DD7E /* AVPlayerCacheLibrary */;
+			target = 55546BECA6642EB2A906E93E0F16B86D /* AVPlayerCacheLibrary */;
 			targetProxy = 4AE175E31AC1711E680E98300C6194CF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1189E9D7877395BE6F7DED8491465367 /* Debug */ = {
+		19E80DD8FE15256267569F792865351F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D7372FB0F9F377CA7F935A9093515C5F /* AVPlayerCacheLibrary.xcconfig */;
 			buildSettings = {
@@ -418,7 +420,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -431,7 +433,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/AVPlayerCacheLibrary/AVPlayerCacheLibrary.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = AVPlayerCacheLibrary;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -439,7 +441,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		3E60A7B9AF058D2E5995A67E948E39C7 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -468,37 +470,6 @@
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Pods_AVPlayerCacheLibrary_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		541EF8318BD2599E630D57AE6F1B1D35 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7372FB0F9F377CA7F935A9093515C5F /* AVPlayerCacheLibrary.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AVPlayerCacheLibrary/AVPlayerCacheLibrary-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AVPlayerCacheLibrary/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/AVPlayerCacheLibrary/AVPlayerCacheLibrary.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = AVPlayerCacheLibrary;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -696,6 +667,37 @@
 			};
 			name = Debug;
 		};
+		F354F85061814B44B73563051FE80BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7372FB0F9F377CA7F935A9093515C5F /* AVPlayerCacheLibrary.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AVPlayerCacheLibrary/AVPlayerCacheLibrary-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AVPlayerCacheLibrary/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AVPlayerCacheLibrary/AVPlayerCacheLibrary.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = AVPlayerCacheLibrary;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -726,11 +728,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60FCECD2D9B4CD5A8D7CE60029A23B12 /* Build configuration list for PBXNativeTarget "AVPlayerCacheLibrary" */ = {
+		8646D63A983E32DB48FD3E2AD7C07707 /* Build configuration list for PBXNativeTarget "AVPlayerCacheLibrary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1189E9D7877395BE6F7DED8491465367 /* Debug */,
-				541EF8318BD2599E630D57AE6F1B1D35 /* Release */,
+				F354F85061814B44B73563051FE80BF2 /* Debug */,
+				19E80DD8FE15256267569F792865351F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

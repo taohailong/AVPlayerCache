@@ -12,6 +12,8 @@
 @interface TVideoLoadManager : NSObject<AVAssetResourceLoaderDelegate,VideoLoaderProtocol>
 + (NSString*)encryptionDownLoadUrl:(NSString*)url;
 - (instancetype)initWithFileName:(NSString*)fileName;
-- (void)networkReachable;  //断网重连
+- (BOOL)netWorkError;
+
+//- (void)networkReachable;  //断网重连
 
 @end

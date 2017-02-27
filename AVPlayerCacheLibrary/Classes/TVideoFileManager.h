@@ -22,6 +22,7 @@
 - (NSArray*)getSegmentsFromFile:(NSRange)range;
 - (void)saveSegmentData:(NSUInteger)offset length:(NSUInteger)length;
 
++ (void)setVideoCachePath:(NSString*)path;
 + (NSURL *)cacheFileExistsWithName:(NSString *)fileName;
 + (BOOL)clearCache;
 @end

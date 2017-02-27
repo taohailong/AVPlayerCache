@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "TVideoFileManager.h"
 @interface TVideoDownQueue : NSObject
-
+@property (nonatomic,assign) BOOL isNetworkError;
 - (instancetype)initWithFileManager:(TVideoFileManager *)fileManager WithLoadingRequest:(AVAssetResourceLoadingRequest *)resource loadingUrl:(NSURL*)url;
 - (AVAssetResourceLoadingRequest*)assetResource;
 - (void)sychronizeProcessToConfigure;

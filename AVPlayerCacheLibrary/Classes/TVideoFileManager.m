@@ -9,6 +9,7 @@
 #import "TVideoFileManager.h"
 #import <libkern/OSAtomic.h>
 #import "pthread.h"
+static NSString* VideoCachePath = @"";
 @implementation TVideoFileManager
 {
      NSFileHandle * _writeFileHandle;
@@ -391,9 +392,21 @@
     return [manager removeItemAtPath:[TVideoFileManager cacheFolderPath] error:nil];
 }
 
++ (void)setVideoCachePath:(NSString*)path
+{
+    VideoCachePath = path;
+}
+
 + (NSString *)cacheFolderPath {
-//    return [[NSHomeDirectory( ) stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:@"VideoCaches"];
-    return [[NSHomeDirectory( ) stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"VideoCaches"];
+    
+    if (VideoCachePath) {
+        return VideoCachePath;
+    }
+    NSArray *allCachePaths =  NSSearchPathForDirectoriesInDomains(NSCachesDirectory,
+                                                                  NSUserDomainMask, YES);
+    NSString* cache = [[allCachePaths objectAtIndex:0] stringByAppendingPathComponent:@"video_cache"];
+    return cache;
+//    return [[NSHomeDirectory( ) stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"VideoCaches"];
 }
 
 @end

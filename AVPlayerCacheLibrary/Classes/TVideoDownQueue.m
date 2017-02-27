@@ -22,6 +22,8 @@
 }
 @synthesize currentDownLoadOperation;
 @synthesize assetResource;
+@synthesize isNetworkError;
+
 - (instancetype)initWithFileManager:(TVideoFileManager *)fileManager WithLoadingRequest:(AVAssetResourceLoadingRequest *)resource loadingUrl:(NSURL*)url
 {
     self = [super init];
@@ -105,6 +107,7 @@
             __weak TVideoDownOperation* wRequestOperation = requestOperation;
             [requestOperation setOperationStartBk:^{
                  wself.currentDownLoadOperation = wRequestOperation;
+                 wself.isNetworkError = NO;
             }];
             [requestOperation setDownRespondBk:^(NSUInteger length, NSString *meidaType) {
                 wself.assetResource.contentInformationRequest.contentLength = length;
@@ -134,6 +137,8 @@
                 }
                 if (error == nil) {
                     wself.currentDownLoadOperation = nil;
+                } else {
+                  wself.isNetworkError = YES;
                 }
             }];
             [_downQueue addOperation:requestOperation];

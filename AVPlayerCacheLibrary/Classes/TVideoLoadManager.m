@@ -47,6 +47,16 @@
     return nil;
 }
 
+
+- (BOOL)netWorkError
+{
+    for (TVideoDownQueue* temp in _requestArr) {
+        if (temp.isNetworkError == YES) {
+            return YES;
+        }
+    }
+    return NO;
+}
 #if 1
 - (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
 {

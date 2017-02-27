@@ -9,7 +9,7 @@
 #import "TVideoFileManager.h"
 #import <libkern/OSAtomic.h>
 #import "pthread.h"
-static NSString* VideoCachePath = @"";
+static NSString* VideoCachePath = nil;
 @implementation TVideoFileManager
 {
      NSFileHandle * _writeFileHandle;

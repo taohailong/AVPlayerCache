@@ -383,7 +383,7 @@ static NSString* VideoCachePath = nil;
         return nil;
     }
     NSURL *url = [[manager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask] firstObject];
-    NSURL *path = [url URLByAppendingPathComponent:[NSString stringWithFormat:@"VideoCaches/%@.mp4",fileName]];
+    NSURL *path = [url URLByAppendingPathComponent:[NSString stringWithFormat:@"Caches/video_cache/%@.mp4",fileName]];
     return path;
 }
 

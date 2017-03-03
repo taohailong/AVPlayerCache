@@ -27,8 +27,9 @@
 {
     [super viewDidLoad];
     
-    _playerItem = [AVPlayerItem playerItemWithAsset:[self generatePlayItem:@"http://gslb.miaopai.com/stream/L2srj-Q2LVsx-gW07aNAxw__.mp4?yx=&KID=unistore,video&Expires=1487655578&ssig=sAsMJb7iyd"]];
+//    _playerItem = [AVPlayerItem playerItemWithAsset:[self generatePlayItem:@"http://gslb.miaopai.com/stream/L2srj-Q2LVsx-gW07aNAxw__.mp4?yx=&KID=unistore,video&Expires=1487655578&ssig=sAsMJb7iyd"]];
     
+    _playerItem = [AVPlayerItem playerItemWithAsset:[self generatePlayItem:@"http://gslb.miaopai.com/stream/QgZbuZjY70~LOyicMJz9NQ__.mp4?yx=&KID=unistore,video&Expires=1488340984&ssig=9xbm%2BqHngF"]];
     UIButton* bt = [UIButton buttonWithType:UIButtonTypeCustom];
     [bt setTitle:@"清理缓存" forState:UIControlStateNormal];
     bt.frame = CGRectMake(50, self.view.frame.size.height - 60, 80, 30);
@@ -141,7 +142,7 @@
         }
         
     } else if ([keyPath isEqualToString:@"playbackBufferEmpty"]) {
-        NSLog(@"playbackBufferEmpty  %@",playerItem.playbackBufferEmpty?@"YES":@"NO");
+//        NSLog(@"playbackBufferEmpty  %@",playerItem.playbackBufferEmpty?@"YES":@"NO");
     }
 }
 
@@ -151,9 +152,14 @@
 - (AVURLAsset*)generatePlayItem:(NSString*)url
 {
     AVURLAsset *videoAsset = nil;
+//    NSURL* documentUrl = [TVideoFileManager cacheFileExistsWithName:@"temp1"];
+//    videoAsset = [AVURLAsset assetWithURL:documentUrl];
+
+//    videoAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:url]  options:nil];
     videoAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:[TVideoLoadManager encryptionDownLoadUrl:url]]  options:nil];
-    _downLoadManager = [[TVideoLoadManager alloc]initWithFileName:@"temp"];
-    [videoAsset.resourceLoader setDelegate:_downLoadManager queue:dispatch_get_main_queue()];
+    _downLoadManager = [[TVideoLoadManager alloc]initWithFileName:@"temp1"];
+    [videoAsset.resourceLoader setDelegate:_downLoadManager queue:dispatch_get_global_queue(0, 0)];
+    
     return videoAsset;
 }
 

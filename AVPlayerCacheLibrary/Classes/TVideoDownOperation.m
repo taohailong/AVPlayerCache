@@ -46,7 +46,7 @@
         NSAssert(false, @"video downOperation range error");
     }
 #endif
-    NSLog(@"creat operation %@",self);
+//    NSLog(@"creat operation %@",self);
     return self;
 }
 
@@ -98,7 +98,7 @@
     if (_range.length != 2) {
         NSString* rangeStr = [NSString stringWithFormat:@"bytes=%ld-%ld", _range.location+_cacheLength, _range.length+_range.location-1];
         [request addValue:rangeStr forHTTPHeaderField:@"Range"];
-         NSLog(@"http setRang %@  operation %@",rangeStr,self);
+//         NSLog(@"http setRang %@  operation %@",rangeStr,self);
     }
 
     NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -245,6 +245,6 @@
 
 - (void)dealloc
 {
-    NSLog(@"nsoperation dealloc %@",self);
+//    NSLog(@"nsoperation dealloc %@",self);
 }
 @end

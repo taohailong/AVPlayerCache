@@ -43,7 +43,6 @@
 - (instancetype)initWithUrl:(NSURL *)url withRange:(NSRange)range 
 {
     self = [super init];
-    NSLog(@"initWithUrl rang %@",NSStringFromRange(range));
     _range = range;
   
     _request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:15];;
@@ -84,10 +83,10 @@
 
 - (void)videoLoaderSychronizeProcessToConfigure
 {
-//    if (_cacheLength < 1) {
-//        return;
-//    }
-//      [self.fileManager saveSegmentData:_range.location length:_cacheLength];
+    if (_cacheLength < 1) {
+        return;
+    }
+      [self.fileManager saveSegmentData:_range.location length:_cacheLength];
 }
 
 - (void)fillDataToAssetResource
@@ -136,7 +135,6 @@
 //    NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *)response;
 //    NSString * contentRange = [[httpResponse allHeaderFields] objectForKey:@"Content-Range"];
 //    NSString * fileLength = [[contentRange componentsSeparatedByString:@"/"] lastObject];
-    NSLog(@"expect contentLength %ld",response.expectedContentLength);
     [self.fileManager setFileLength:response.expectedContentLength];
    self.assetResource.contentInformationRequest.contentLength = response.expectedContentLength;
     [self.assetResource finishLoading];

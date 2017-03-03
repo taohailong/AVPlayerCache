@@ -89,10 +89,9 @@
                     data =  [wFileManager readTempFileDataWithOffset:startInteger length:1024000];
                      [wself.assetResource.dataRequest respondWithData:data];
                     [NSThread sleepForTimeInterval:0.1];
-                    startInteger = startInteger + 1024000;
+                     startInteger = startInteger + 1024000;
                     totalLength = totalLength - 1024000;
                 }
-                
                 data =  [wFileManager readTempFileDataWithOffset:startInteger length:totalLength];
                 [wself.assetResource.dataRequest respondWithData:data];
                 if ([wself getCurrentOperaton] == 1) {
@@ -174,6 +173,8 @@
 
 - (void)dealloc
 {
+    [self sychronizeProcessToConfigure];
+    [self cancelDownLoad];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

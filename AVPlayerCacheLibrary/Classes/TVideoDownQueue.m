@@ -44,17 +44,6 @@
     self.currentDownLoadOperation.netReachable = true;
 }
 
-
-//- (AVAssetResourceLoadingRequest*)assetResource
-//{
-//    return _assetResource;
-//}
-//
-//- (void)setAssetResource:(AVAssetResourceLoadingRequest*)assetResource
-//{
-//    _assetResource = assetResource;
-//}
-
 - (void)addReuqestOperation
 {
     NSArray* segmentArr = [_fileManager getSegmentsFromFile: NSMakeRange(self.assetResource.dataRequest.currentOffset, self.assetResource.dataRequest.requestedLength-self.assetResource.dataRequest.currentOffset+self.assetResource.dataRequest.requestedOffset)];
@@ -81,16 +70,18 @@
                 NSUInteger startInteger = start.unsignedIntegerValue;
                 NSUInteger totalLength = end.unsignedIntegerValue - startInteger + 1;
                 NSData* data = nil;
-                while (totalLength > 1024000) {
+                int bufSize = 1024000;
+                while (totalLength > bufSize) {
                     if (wself.assetResource.isCancelled || wself.assetResource.isFinished) {
-                        [wself.assetResource finishLoading];
+                       [wself cancelDownLoad];
                         return;
                     }
-                    data =  [wFileManager readTempFileDataWithOffset:startInteger length:1024000];
-                     [wself.assetResource.dataRequest respondWithData:data];
+                    data =  [wFileManager readTempFileDataWithOffset:startInteger length:bufSize];
+                    [wself.assetResource.dataRequest respondWithData:data];
+                
                     [NSThread sleepForTimeInterval:0.1];
-                     startInteger = startInteger + 1024000;
-                    totalLength = totalLength - 1024000;
+                     startInteger = startInteger + bufSize;
+                    totalLength = totalLength - bufSize;
                 }
                 data =  [wFileManager readTempFileDataWithOffset:startInteger length:totalLength];
                 [wself.assetResource.dataRequest respondWithData:data];

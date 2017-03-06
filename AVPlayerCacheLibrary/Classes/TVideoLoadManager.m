@@ -81,25 +81,6 @@
             return true;
         }
     }
-//        if (loadingRequest.dataRequest.requestedLength == 2) {
-//            
-//            loadingRequest.contentInformationRequest.contentLength = 68049739;
-//            NSData* data =  [_fileManager readTempFileDataWithOffset:0 length:2];
-//            [loadingRequest.dataRequest respondWithData:data];
-//            [loadingRequest finishLoading];
-//            OSSpinLockUnlock(&oslock);
-//            return true;
-//        }
-    
-//    if (loadingRequest.dataRequest.requestedOffset == 0&& loadingRequest.dataRequest.requestsAllDataToEndOfResource ) {
-//        
-//        NSData* data =  [_fileManager readTempFileDataWithOffset:0 length:196608];
-//        [loadingRequest.dataRequest respondWithData:data];
-//        [loadingRequest finishLoadingWithError:nil];
-//         OSSpinLockUnlock(&oslock);
-//        return true;
-//    }
-    
     
     NSString* downUrl = [TVideoLoadManager decodeDownLoadUrl:loadingRequest.request.URL.absoluteString];
     TVideoDownQueue* downLoad = [[TVideoDownQueue alloc]initWithFileManager:_fileManager WithLoadingRequest:loadingRequest loadingUrl:[NSURL URLWithString:downUrl]];

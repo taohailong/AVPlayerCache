@@ -156,6 +156,7 @@
 //    videoAsset = [AVURLAsset assetWithURL:documentUrl];
 
 //    videoAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:url]  options:nil];
+    
     videoAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:[TVideoLoadManager encryptionDownLoadUrl:url]]  options:nil];
     _downLoadManager = [[TVideoLoadManager alloc]initWithFileName:@"temp1"];
     [videoAsset.resourceLoader setDelegate:_downLoadManager queue:dispatch_get_global_queue(0, 0)];

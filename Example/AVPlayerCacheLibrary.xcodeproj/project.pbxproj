@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2960B1791E63C79A00761F53 /* AVPlayerCacheLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2960B1781E63C79A00761F53 /* AVPlayerCacheLibrary.framework */; };
+		299F1DB61E6EC0CE000F04CC /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 299F1DB51E6EC0CE000F04CC /* NSString+Helper.m */; };
+		299F1DB81E6EC0DE000F04CC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299F1DB71E6EC0DE000F04CC /* SystemConfiguration.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -42,6 +44,9 @@
 		0B94F0A86EC3E5264A518C6A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		1733E21D723C6CCA86C31FFC /* Pods-AVPlayerCacheLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVPlayerCacheLibrary_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AVPlayerCacheLibrary_Example/Pods-AVPlayerCacheLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2960B1781E63C79A00761F53 /* AVPlayerCacheLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVPlayerCacheLibrary.framework; path = "../../../../Library/Developer/Xcode/DerivedData/AVPlayerCacheLibrary-cerbgcwwmenwkjduxbzdqqwhrxxn/Build/Products/Debug-iphonesimulator/AVPlayerCacheLibrary/AVPlayerCacheLibrary.framework"; sourceTree = "<group>"; };
+		299F1DB41E6EC0CE000F04CC /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
+		299F1DB51E6EC0CE000F04CC /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helper.m"; sourceTree = "<group>"; };
+		299F1DB71E6EC0DE000F04CC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		55140F6A55DE1D91B40869B6 /* Pods-AVPlayerCacheLibrary_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVPlayerCacheLibrary_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AVPlayerCacheLibrary_Tests/Pods-AVPlayerCacheLibrary_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* AVPlayerCacheLibrary_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVPlayerCacheLibrary_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				299F1DB81E6EC0DE000F04CC /* SystemConfiguration.framework in Frameworks */,
 				2960B1791E63C79A00761F53 /* AVPlayerCacheLibrary.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
@@ -133,6 +139,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				299F1DB71E6EC0DE000F04CC /* SystemConfiguration.framework */,
 				2960B1781E63C79A00761F53 /* AVPlayerCacheLibrary.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
@@ -149,6 +156,8 @@
 			children = (
 				6003F59C195388D20070C39A /* TAppDelegate.h */,
 				6003F59D195388D20070C39A /* TAppDelegate.m */,
+				299F1DB41E6EC0CE000F04CC /* NSString+Helper.h */,
+				299F1DB51E6EC0CE000F04CC /* NSString+Helper.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* TViewController.h */,
 				6003F5A6195388D20070C39A /* TViewController.m */,
@@ -405,6 +414,7 @@
 				6003F59E195388D20070C39A /* TAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* TViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				299F1DB61E6EC0CE000F04CC /* NSString+Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

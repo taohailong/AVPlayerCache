@@ -15,5 +15,6 @@
 - (AVAssetResourceLoadingRequest*)assetResource;
 - (void)sychronizeProcessToConfigure;
 - (void)cancelDownLoad;
+- (void)reloadAssetResource:(AVAssetResourceLoadingRequest*)request;
 @property(nonatomic,strong)AVAssetResourceLoadingRequest*assetResource;
 @end

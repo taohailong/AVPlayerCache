@@ -60,12 +60,22 @@
 #if 1
 - (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-//     NSLog(@"loadingRequest %ld-%ld ", loadingRequest.dataRequest.requestedOffset,loadingRequest.dataRequest.requestedLength+loadingRequest.dataRequest.requestedOffset-1);
+     NSLog(@"loadingRequest %ld-%ld ", loadingRequest.dataRequest.requestedOffset,loadingRequest.dataRequest.requestedLength+loadingRequest.dataRequest.requestedOffset-1);
+    
+//    if (_requestArr.count == 1 && loadingRequest.dataRequest.requestedOffset == 0) {
+//        TVideoDownQueue* first = _requestArr.firstObject;
+//        if (first.assetResource.dataRequest.requestedLength == 2) {
+//            [first reloadAssetResource:loadingRequest];
+//            return YES;
+//        }
+//    }
+    
     [self checkResourceLoader];
-    CFStringRef contentType = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, (__bridge CFStringRef)(@"video/mp4"), NULL);
-   loadingRequest.contentInformationRequest.contentType = CFBridgingRelease(contentType);
-   loadingRequest.contentInformationRequest.byteRangeAccessSupported = YES;
-    //exist video cache
+    if (loadingRequest.contentInformationRequest) {
+        CFStringRef contentType = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, (__bridge CFStringRef)(@"video/mp4"), NULL);
+        loadingRequest.contentInformationRequest.contentType = CFBridgingRelease(contentType);
+        loadingRequest.contentInformationRequest.byteRangeAccessSupported = YES;
+    }
     
     OSSpinLockLock(&oslock);
     

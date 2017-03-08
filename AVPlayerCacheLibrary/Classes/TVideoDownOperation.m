@@ -201,11 +201,11 @@
     }
     
     NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *)response;
-    NSString * contentRange = [[httpResponse allHeaderFields] objectForKey:@"Content-Range"];
-    NSString * fileLength = [[contentRange componentsSeparatedByString:@"/"] lastObject];
+    NSUInteger contentLength = [[[httpResponse allHeaderFields] objectForKey:@"Content-Length"] longLongValue];
+//    NSString * fileLength = [[contentRange componentsSeparatedByString:@"/"] lastObject];
     
     if (_respondBk) {
-        _respondBk([fileLength longLongValue],response.MIMEType);
+        _respondBk(contentLength,response.MIMEType);
     }
     completionHandler(NSURLSessionResponseAllow);
 }

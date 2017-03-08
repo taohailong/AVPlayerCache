@@ -205,7 +205,7 @@
     NSString * fileLength = [[contentRange componentsSeparatedByString:@"/"] lastObject];
     
     if (_respondBk) {
-        _respondBk(response.expectedContentLength,response.MIMEType);
+        _respondBk([fileLength longLongValue],response.MIMEType);
     }
     completionHandler(NSURLSessionResponseAllow);
 }

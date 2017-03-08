@@ -112,9 +112,11 @@
                  wself.isNetworkError = NO;
             }];
             [requestOperation setDownRespondBk:^(NSUInteger length, NSString *meidaType) {
-                wself.assetResource.contentInformationRequest.contentLength = length;
-                [wFileManager setFileLength:length];
-                [wself.assetResource finishLoading];
+                if (wself.assetResource.contentInformationRequest) {
+                    wself.assetResource.contentInformationRequest.contentLength = length;
+                    [wFileManager setFileLength:length];
+                    [wself.assetResource finishLoading];
+                }
             }];
             
             [requestOperation setDownProcessBk:^(NSUInteger offset, NSData *data) {

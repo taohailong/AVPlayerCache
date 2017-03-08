@@ -204,7 +204,7 @@
     NSString * contentRange = [[httpResponse allHeaderFields] objectForKey:@"Content-Range"];
     NSString * fileLength = [[contentRange componentsSeparatedByString:@"/"] lastObject];
     
-    if (_respondBk && _range.length == 2) {
+    if (_respondBk) {
         _respondBk(response.expectedContentLength,response.MIMEType);
     }
     completionHandler(NSURLSessionResponseAllow);

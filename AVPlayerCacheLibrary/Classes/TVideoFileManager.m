@@ -141,6 +141,7 @@ static NSString* VideoCachePath = nil;
             
             NSArray* insertArr = @[start,end];
             [_segmentArr addObject:insertArr];
+            [self saveSegmentToPlist];
             OSSpinLockUnlock(&oslock);
             return ;
         }

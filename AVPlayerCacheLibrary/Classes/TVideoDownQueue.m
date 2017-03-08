@@ -168,14 +168,11 @@
 
 - (void)sychronizeProcessToConfigure
 {
-    NSLock* lock = [[NSLock alloc]init];
-    [lock lock];
     if (self.currentDownLoadOperation) {
         NSUInteger offset = [self.currentDownLoadOperation requestOffset];
         NSUInteger length = [self.currentDownLoadOperation cacheLength];
         [_fileManager saveSegmentData:offset length:length];
     }
-     [lock unlock];
 }
 
 - (void)dealloc

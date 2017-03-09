@@ -90,7 +90,6 @@
                     data =  [wFileManager readTempFileDataWithOffset:startInteger length:bufSize];
 //                     NSLog(@"respondWithData from %ld-%ld",startInteger,bufSize);
                     [wself.assetResource.dataRequest respondWithData:data];
-                
                     [NSThread sleepForTimeInterval:0.1];
                      startInteger = startInteger + bufSize;
                     totalLength = totalLength - bufSize;
@@ -111,13 +110,14 @@
                  wself.currentDownLoadOperation = wRequestOperation;
                  wself.isNetworkError = NO;
             }];
-            [requestOperation setDownRespondBk:^(NSUInteger length, NSString *meidaType) {
-                if (wself.assetResource.contentInformationRequest) {
+            
+            if (wself.assetResource.contentInformationRequest) {
+                [requestOperation setDownRespondBk:^(NSUInteger length, NSString *meidaType) {
                     wself.assetResource.contentInformationRequest.contentLength = length;
                     [wFileManager setFileLength:length];
                     [wself.assetResource finishLoading];
-                }
-            }];
+                }];
+            }
             
             [requestOperation setDownProcessBk:^(NSUInteger offset, NSData *data) {
 

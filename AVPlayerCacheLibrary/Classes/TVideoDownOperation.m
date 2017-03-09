@@ -193,19 +193,19 @@
 //服务器响应
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler {
     
-//    NSLog(@" response: %@",response);
     NSUInteger code = ((NSHTTPURLResponse *)response).statusCode;
     if (code == 404) {
         [self cancelInternal];
         return;
     }
     
-    NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *)response;
-    NSUInteger contentLength = [[[httpResponse allHeaderFields] objectForKey:@"Content-Length"] longLongValue];
-//    NSString * fileLength = [[contentRange componentsSeparatedByString:@"/"] lastObject];
-    
     if (_respondBk) {
-        _respondBk(contentLength,response.MIMEType);
+        NSHTTPURLResponse * httpResponse = (NSHTTPURLResponse *)response;
+        NSUInteger contentLength = [[[httpResponse allHeaderFields] objectForKey:@"Content-Length"] longLongValue];
+        NSString* contentRange = [[httpResponse allHeaderFields] objectForKey:@"Content-Range"];
+        NSUInteger  fileLength = [[[contentRange componentsSeparatedByString:@"/"] lastObject] longLongValue];
+//        NSLog(@"contentLength %ld  %ld  ",contentLength,fileLength);
+        _respondBk(contentLength>fileLength?contentLength:fileLength,response.MIMEType);
     }
     completionHandler(NSURLSessionResponseAllow);
 }

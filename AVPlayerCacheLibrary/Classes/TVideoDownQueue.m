@@ -108,16 +108,17 @@
             __weak TVideoDownOperation* wRequestOperation = requestOperation;
             [requestOperation setOperationStartBk:^{
                  wself.currentDownLoadOperation = wRequestOperation;
-                 wself.isNetworkError = NO;
             }];
             
-            if (wself.assetResource.contentInformationRequest) {
-                [requestOperation setDownRespondBk:^(NSUInteger length, NSString *meidaType) {
-                    wself.assetResource.contentInformationRequest.contentLength = length;
-                    [wFileManager setFileLength:length];
-                    [wself.assetResource finishLoading];
-                }];
-            }
+           
+            [requestOperation setDownRespondBk:^(NSUInteger length, NSString *meidaType) {
+                    wself.isNetworkError = NO;
+                     if (wself.assetResource.contentInformationRequest) {
+                         wself.assetResource.contentInformationRequest.contentLength = length;
+                         [wFileManager setFileLength:length];
+                         [wself.assetResource finishLoading];
+                     }
+            }];
             
             [requestOperation setDownProcessBk:^(NSUInteger offset, NSData *data) {
 

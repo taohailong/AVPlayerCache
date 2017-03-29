@@ -27,7 +27,7 @@ static NSString* VideoCachePath = nil;
      oslock = OS_SPINLOCK_INIT;
     
    NSString * path = [TVideoFileManager creatCacheDirectory];
-    NSLog(@"document path %@",path);
+//    NSLog(@"document path %@",path);
     NSString* videoPath = [NSString stringWithFormat:@"%@/%@.mp4",path,fileName];
     NSString* segmentPath = [NSString stringWithFormat:@"%@/%@.plist",path,fileName];
     BOOL creatError = [self createTempFile:videoPath];

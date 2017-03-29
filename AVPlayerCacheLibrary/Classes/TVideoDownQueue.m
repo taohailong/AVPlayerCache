@@ -44,7 +44,7 @@
     NSAssert(request.dataRequest.requestedOffset == 0, @"reloadAssetResource error");
     NSUInteger offset = [self.currentDownLoadOperation requestOffset];
     NSUInteger length = [self.currentDownLoadOperation cacheLength];
-    NSLog(@"reloadAssetResource currentDownLoadOperation %@ length %ld",self.currentDownLoadOperation,length);
+//    NSLog(@"reloadAssetResource currentDownLoadOperation %@ length %ld",self.currentDownLoadOperation,length);
     self.assetResource = request;
     NSData* temp = [_fileManager readTempFileDataWithOffset:offset length:length];
     [self.assetResource.dataRequest respondWithData:temp];
@@ -59,7 +59,7 @@
 - (void)addReuqestOperation
 {
     NSArray* segmentArr = [_fileManager getSegmentsFromFile: NSMakeRange(self.assetResource.dataRequest.currentOffset, self.assetResource.dataRequest.requestedLength-self.assetResource.dataRequest.currentOffset+self.assetResource.dataRequest.requestedOffset)];
-    NSLog(@"read segmentArr %@   current offset %ld-%ld",segmentArr,self.assetResource.dataRequest.currentOffset,self.assetResource.dataRequest.requestedOffset+self.assetResource.dataRequest.requestedLength-1);
+//    NSLog(@"read segmentArr %@   current offset %ld-%ld",segmentArr,self.assetResource.dataRequest.currentOffset,self.assetResource.dataRequest.requestedOffset+self.assetResource.dataRequest.requestedLength-1);
     
      __weak TVideoFileManager* wFileManager = _fileManager;
      __weak typeof (self) wself = self;

@@ -51,7 +51,7 @@
         
         NSString* rangeStr = [NSString stringWithFormat:@"bytes=%ld-%ld", range.location, range.length - 1 + range.location];
         [_request addValue:rangeStr forHTTPHeaderField:@"Range"];
-        NSLog(@"http setRang %@",rangeStr);
+//        NSLog(@"http setRang %@",rangeStr);
     }
     _operateQueue = [[NSOperationQueue alloc]init];
       return self;

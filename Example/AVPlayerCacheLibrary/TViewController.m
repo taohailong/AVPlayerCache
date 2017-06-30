@@ -9,11 +9,9 @@
 #import "TViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVPlayerCacheLibrary/AVPlayerCacheLibrary-umbrella.h>
-#import "NSString+Helper.h"
 @interface TViewController ()
 {
     AVPlayerItem* _playerItem;
-//    VideoLoader* loader;
     AVPlayer* _player;
     TVideoLoadManager* _downLoadManager;
     int _currentTime;
@@ -27,17 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSURL* url = [NSURL URLWithString:@"https://www.baidu.com"];
-        NSLog(@"start look up ");
-        NSString* ip =   [NSString lookupHostIPAddressForURL:url];
-        NSLog(@"ip is %@",ip);
-        NSString* wifi = [NSString currentWifiSSID];
-        NSLog(@"wifi is %@ address %@",wifi,[NSString localWiFiIPAddress]);
-    });
-   
-    
+
 //    _playerItem = [AVPlayerItem playerItemWithAsset:[self generatePlayItem:@"http://gslb.miaopai.com/stream/p2H9cJpKXYlFCW9O93O0gw__.mp4?yx=&KID=unistore,video&Expires=1488963625&ssig=ygmImhzt%2FO"]];
     
     _playerItem = [AVPlayerItem playerItemWithAsset:[self generatePlayItem:@"http://gslb.miaopai.com/stream/QgZbuZjY70~LOyicMJz9NQ__.mp4?yx=&KID=unistore,video&Expires=1488340984&ssig=9xbm%2BqHngF"]];
@@ -67,7 +55,6 @@
 }
 - (void)startPlay
 {
-    NSLog(@"start play");
     if (_player == nil) {
         _player = [AVPlayer playerWithPlayerItem:_playerItem];
         [self setupAVObserver];
@@ -93,8 +80,6 @@
 - (void)playerSeekTo:(NSUInteger)value
 {
     [_player pause];
-    //    [_playerItem.asset cancelLoading];
-    //    [_player cancelPendingPrerolls];
     [_player seekToTime:CMTimeMakeWithSeconds(value, NSEC_PER_SEC)  completionHandler:^(BOOL finished) {
         [_player play];
     }];
@@ -153,7 +138,6 @@
         }
         
     } else if ([keyPath isEqualToString:@"playbackBufferEmpty"]) {
-//        NSLog(@"playbackBufferEmpty  %@",playerItem.playbackBufferEmpty?@"YES":@"NO");
     }
 }
 
@@ -161,11 +145,6 @@
 - (AVURLAsset*)generatePlayItem:(NSString*)url
 {
     AVURLAsset *videoAsset = nil;
-//    NSURL* documentUrl = [TVideoFileManager cacheFileExistsWithName:@"temp2"];
-//    videoAsset = [AVURLAsset assetWithURL:documentUrl];
-
-//   videoAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:url]  options:nil];
-    
     videoAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:[TVideoLoadManager encryptionDownLoadUrl:url]]  options:nil];
     _downLoadManager = [[TVideoLoadManager alloc]initWithFileName:@"temp2"];
     [videoAsset.resourceLoader setDelegate:_downLoadManager queue:dispatch_get_global_queue(0, 0)];

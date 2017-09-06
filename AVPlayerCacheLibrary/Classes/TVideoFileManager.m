@@ -388,6 +388,25 @@ static NSString* VideoCachePath = nil;
     return path;
 }
 
+
++ (BOOL)hasFinishedVideoCache:(NSString *)fileName{
+    NSString * path =  [TVideoFileManager cacheFolderPath];
+    NSString* segmentPath = [NSString stringWithFormat:@"%@/%@.plist",path,fileName];
+    NSDictionary * dic = [NSDictionary dictionaryWithContentsOfFile:segmentPath];
+    if (dic) {
+        NSArray* segments = dic[@"fileArr"];
+        if (segments.count == 1) {
+            NSNumber* length = dic[@"fileLength"];
+            NSUInteger fileLength = [length unsignedIntegerValue];
+            NSArray* seg = segments.firstObject;
+            if ([seg[0] unsignedIntegerValue] == 0 && [seg[1] unsignedIntegerValue] + 1 == fileLength) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
 + (BOOL)clearCache {
     NSFileManager * manager = [NSFileManager defaultManager];
     return [manager removeItemAtPath:[TVideoFileManager cacheFolderPath] error:nil];

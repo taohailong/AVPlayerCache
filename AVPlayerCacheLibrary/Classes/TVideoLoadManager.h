@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "TVideoLoader.h"
-@interface TVideoLoadManager : NSObject<AVAssetResourceLoaderDelegate,VideoLoaderProtocol>
+@interface TVideoLoadManager : NSObject<AVAssetResourceLoaderDelegate>
 + (NSString*)encryptionDownLoadUrl:(NSString*)url;
 - (instancetype)initWithFileName:(NSString*)fileName;
 - (BOOL)netWorkError;

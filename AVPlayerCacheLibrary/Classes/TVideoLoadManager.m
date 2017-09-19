@@ -9,7 +9,6 @@
 #import "TVideoLoadManager.h"
 #import "TVideoDownQueue.h"
 #import "TVideoFileManager.h"
-#import "TVideoLoader.h"
 #import <libkern/OSAtomic.h>
 #import "TVideoDownOperation.h"
 #import <MobileCoreServices/MobileCoreServices.h>
@@ -17,7 +16,6 @@
 {
     NSUInteger _fileLength;
     NSUInteger _cancelLength;
-    TVideoLoader * _downLoad;
     TVideoFileManager* _fileManager;
     NSMutableArray* _requestArr;
     OSSpinLock oslock ;
@@ -95,6 +93,7 @@
     
     NSString* downUrl = [TVideoLoadManager decodeDownLoadUrl:loadingRequest.request.URL.absoluteString];
     TVideoDownQueue* downLoad = [[TVideoDownQueue alloc]initWithFileManager:_fileManager WithLoadingRequest:loadingRequest loadingUrl:[NSURL URLWithString:downUrl]];
+    downLoad.httpHeader = _httpHeader;
     [_requestArr addObject:downLoad];
      OSSpinLockUnlock(&oslock);
     
@@ -208,12 +207,6 @@
 
 - (void)setHTTPHeaderField:(NSDictionary *)header{
     _httpHeader = header;
-}
-
-#pragma mark ---- LoadRequest delegate
-
-- (void)videoLoaderConfigure:(NSMutableURLRequest *)request{
-    request.allHTTPHeaderFields = _httpHeader;
 }
 
 - (void)dealloc

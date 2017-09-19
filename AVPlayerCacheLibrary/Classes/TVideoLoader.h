@@ -12,7 +12,6 @@
 typedef void (^VideoLoaderProcessBk)(NSUInteger offset,NSData*data);
 typedef void (^VideoLoaderCompleteBk)(NSError* error,NSUInteger offset,NSUInteger length);
 typedef void(^VideoLoaderRespondBk)(NSUInteger length,NSString*meidaType);
-
 @protocol VideoLoaderProtocol <NSObject>
 @optional
 - (void)videoLoaderConfigure:(NSMutableURLRequest*)request;

@@ -94,6 +94,7 @@
     }
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:_downLoadUrl cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
+    request.allHTTPHeaderFields = self.httpHeader;
     
     if (_range.length != 2) {
         NSString* rangeStr = [NSString stringWithFormat:@"bytes=%ld-%ld", _range.location+_cacheLength, _range.length+_range.location-1];

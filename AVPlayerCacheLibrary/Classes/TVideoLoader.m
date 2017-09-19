@@ -13,6 +13,7 @@
     VideoLoaderCompleteBk _completeBk;
     VideoLoaderProcessBk _processBk;
     VideoLoaderRespondBk _respondBk;
+    
     NSRange _range;
     __weak id<VideoLoaderProtocol>_delegate;
     NSUInteger _cacheLength;
@@ -51,7 +52,6 @@
         
         NSString* rangeStr = [NSString stringWithFormat:@"bytes=%ld-%ld", range.location, range.length - 1 + range.location];
         [_request addValue:rangeStr forHTTPHeaderField:@"Range"];
-//        NSLog(@"http setRang %@",rangeStr);
     }
     if ([_delegate respondsToSelector:@selector(videoLoaderConfigure:)]) {
         [_delegate videoLoaderConfigure:_request];

@@ -9,14 +9,16 @@
 #import "TViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AVPlayerCacheLibrary/AVPlayerCacheLibrary-umbrella.h>
-@interface TViewController ()
+//#import <AVPlayerCacheLibrary/TPlayerView.h>
+@interface TViewController ()<PlayerDelegate>
 {
-    AVPlayerItem* _playerItem;
-    AVPlayer* _player;
-    TVideoLoadManager* _downLoadManager;
+//    AVPlayerItem* _playerItem;
+//    AVPlayer* _player;
+//    TVideoLoadManager* _downLoadManager;
+    
     int _currentTime;
     UISlider* timeProgress;
-
+    TPlayerView* _player;
 }
 @end
 
@@ -30,7 +32,14 @@
     
 //   BOOL finish =  [TVideoFileManager hasFinishedVideoCache:@"temp2"];
     
-    _playerItem = [AVPlayerItem playerItemWithAsset:[self generatePlayItem:@"http://gslb.miaopai.com/stream/QgZbuZjY70~LOyicMJz9NQ__.mp4?yx=&KID=unistore,video&Expires=1488340984&ssig=9xbm%2BqHngF"]];
+//    _playerItem = [AVPlayerItem playerItemWithAsset:[self generatePlayItem:@"http://gslb.miaopai.com/stream/QgZbuZjY70~LOyicMJz9NQ__.mp4?yx=&KID=unistore,video&Expires=1488340984&ssig=9xbm%2BqHngF"]];
+    
+    NSString* url = @"http://gslb.miaopai.com/stream/QgZbuZjY70~LOyicMJz9NQ__.mp4?yx=&KID=unistore,video&Expires=1488340984&ssig=9xbm%2BqHngF";
+    _player = [[TPlayerView alloc]initWithFrame:self.view.bounds videoUrl:url WithVideoName:@"temp" WithDelegate:self];
+    [self.view addSubview:_player];
+    
+    
+    
     UIButton* bt = [UIButton buttonWithType:UIButtonTypeCustom];
     [bt setTitle:@"清理缓存" forState:UIControlStateNormal];
     bt.frame = CGRectMake(50, self.view.frame.size.height - 60, 80, 30);
@@ -57,13 +66,14 @@
 }
 - (void)startPlay
 {
-    if (_player == nil) {
-        _player = [AVPlayer playerWithPlayerItem:_playerItem];
-        [self setupAVObserver];
-        AVPlayerLayer* layer = [AVPlayerLayer playerLayerWithPlayer:_player];
-        layer.frame = self.view.bounds;
-        [self.view.layer addSublayer:layer];
-    }
+    [_player loadVideoData];
+//    if (_player == nil) {
+//        _player = [AVPlayer playerWithPlayerItem:_playerItem];
+//        [self setupAVObserver];
+//        AVPlayerLayer* layer = [AVPlayerLayer playerLayerWithPlayer:_player];
+//        layer.frame = self.view.bounds;
+//        [self.view.layer addSublayer:layer];
+//    }
 }
 
 
@@ -81,10 +91,10 @@
 
 - (void)playerSeekTo:(NSUInteger)value
 {
-    [_player pause];
-    [_player seekToTime:CMTimeMakeWithSeconds(value, NSEC_PER_SEC)  completionHandler:^(BOOL finished) {
-        [_player play];
-    }];
+//    [_player pause];
+//    [_player seekToTime:CMTimeMakeWithSeconds(value, NSEC_PER_SEC)  completionHandler:^(BOOL finished) {
+//        [_player play];
+//    }];
 }
 
 
@@ -95,65 +105,65 @@
 }
 
 
-- (void)setupAVObserver
-{
-    NSLog(@"######## addAVObserver");
-    [_playerItem addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:NSKeyValueObservingOptionNew context:nil];
-    [_playerItem addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
-    [_playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
-    [_playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-}
+//- (void)setupAVObserver
+//{
+//    NSLog(@"######## addAVObserver");
+//    [_playerItem addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:NSKeyValueObservingOptionNew context:nil];
+//    [_playerItem addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
+//    [_playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
+//    [_playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+//}
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
-{
-    AVPlayerItem *playerItem = (AVPlayerItem *)object;
-    if ([keyPath isEqualToString:@"status"]) {
-        if ([playerItem status] == AVPlayerStatusReadyToPlay)
-        {
-            CGFloat totalSecond = 0;
-            if (playerItem.duration.timescale != 0) {
-                totalSecond = playerItem.duration.value / playerItem.duration.timescale;
-            }
-            timeProgress.maximumValue = totalSecond;
-            NSLog(@"status is ok");
-            [_player play];
-        }
-        else if ([playerItem status] == AVPlayerStatusFailed) {
-            NSLog(@"AVPlayerStatusFailed ");
-        }
-        else
-        {
-            NSLog(@"AVPlayerStatusUnknown ");
-        }
-        
-    }
-    else if ([keyPath isEqualToString:@"loadedTimeRanges"])
-    {
-        NSArray * array = playerItem.loadedTimeRanges;
-        CMTimeRange timeRange = [array.firstObject CMTimeRangeValue]; //本次缓冲的时间范围
-        NSTimeInterval totalBuffer = CMTimeGetSeconds(timeRange.start) + CMTimeGetSeconds(timeRange.duration); //缓冲总长度
-    }   else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"]) {
-        BOOL isKeepup = playerItem.playbackLikelyToKeepUp;
-        NSLog(@"change %d playbackBufferEmpty  %@",isKeepup,playerItem.playbackBufferEmpty?@"YES":@"NO");
-        if (isKeepup) {
-            [_player play];
-        }
-        
-    } else if ([keyPath isEqualToString:@"playbackBufferEmpty"]) {
-    }
-}
-
-
-- (AVURLAsset*)generatePlayItem:(NSString*)url
-{
-    AVURLAsset *videoAsset = nil;
-    videoAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:[TVideoLoadManager encryptionDownLoadUrl:url]]  options:nil];
-    _downLoadManager = [[TVideoLoadManager alloc]initWithFileName:@"temp2"];
-    [_downLoadManager setHTTPHeaderField:@{@"1":@"2"}];
-    [videoAsset.resourceLoader setDelegate:_downLoadManager queue:dispatch_get_global_queue(0, 0)];
-    
-    return videoAsset;
-}
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+//{
+//    AVPlayerItem *playerItem = (AVPlayerItem *)object;
+//    if ([keyPath isEqualToString:@"status"]) {
+//        if ([playerItem status] == AVPlayerStatusReadyToPlay)
+//        {
+//            CGFloat totalSecond = 0;
+//            if (playerItem.duration.timescale != 0) {
+//                totalSecond = playerItem.duration.value / playerItem.duration.timescale;
+//            }
+//            timeProgress.maximumValue = totalSecond;
+//            NSLog(@"status is ok");
+//            [_player play];
+//        }
+//        else if ([playerItem status] == AVPlayerStatusFailed) {
+//            NSLog(@"AVPlayerStatusFailed ");
+//        }
+//        else
+//        {
+//            NSLog(@"AVPlayerStatusUnknown ");
+//        }
+//        
+//    }
+//    else if ([keyPath isEqualToString:@"loadedTimeRanges"])
+//    {
+//        NSArray * array = playerItem.loadedTimeRanges;
+//        CMTimeRange timeRange = [array.firstObject CMTimeRangeValue]; //本次缓冲的时间范围
+//        NSTimeInterval totalBuffer = CMTimeGetSeconds(timeRange.start) + CMTimeGetSeconds(timeRange.duration); //缓冲总长度
+//    }   else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"]) {
+//        BOOL isKeepup = playerItem.playbackLikelyToKeepUp;
+//        NSLog(@"change %d playbackBufferEmpty  %@",isKeepup,playerItem.playbackBufferEmpty?@"YES":@"NO");
+//        if (isKeepup) {
+//            [_player play];
+//        }
+//        
+//    } else if ([keyPath isEqualToString:@"playbackBufferEmpty"]) {
+//    }
+//}
+//
+//
+//- (AVURLAsset*)generatePlayItem:(NSString*)url
+//{
+//    AVURLAsset *videoAsset = nil;
+//    videoAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:[TVideoLoadManager encryptionDownLoadUrl:url]]  options:nil];
+//    _downLoadManager = [[TVideoLoadManager alloc]initWithFileName:@"temp2"];
+//    [_downLoadManager setHTTPHeaderField:@{@"1":@"2"}];
+//    [videoAsset.resourceLoader setDelegate:_downLoadManager queue:dispatch_get_global_queue(0, 0)];
+//    
+//    return videoAsset;
+//}
 
 - (void)didReceiveMemoryWarning
 {

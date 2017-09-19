@@ -2,6 +2,7 @@
 #import <UIKit/UIKit.h>
 #endif
 
+#import "TPlayerView.h"
 #import "TVideoDownOperation.h"
 #import "TVideoDownQueue.h"
 #import "TVideoFileManager.h"

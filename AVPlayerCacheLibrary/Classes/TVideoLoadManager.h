@@ -13,7 +13,7 @@
 + (NSString*)encryptionDownLoadUrl:(NSString*)url;
 - (instancetype)initWithFileName:(NSString*)fileName;
 - (BOOL)netWorkError;
-
+- (void)setHTTPHeaderField:(NSDictionary*)header;
 //- (void)networkReachable;  //断网重连
 
 @end

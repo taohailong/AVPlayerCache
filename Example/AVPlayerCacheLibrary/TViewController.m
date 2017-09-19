@@ -28,7 +28,7 @@
 
 //    _playerItem = [AVPlayerItem playerItemWithAsset:[self generatePlayItem:@"http://gslb.miaopai.com/stream/p2H9cJpKXYlFCW9O93O0gw__.mp4?yx=&KID=unistore,video&Expires=1488963625&ssig=ygmImhzt%2FO"]];
     
-   BOOL finish =  [TVideoFileManager hasFinishedVideoCache:@"temp2"];
+//   BOOL finish =  [TVideoFileManager hasFinishedVideoCache:@"temp2"];
     
     _playerItem = [AVPlayerItem playerItemWithAsset:[self generatePlayItem:@"http://gslb.miaopai.com/stream/QgZbuZjY70~LOyicMJz9NQ__.mp4?yx=&KID=unistore,video&Expires=1488340984&ssig=9xbm%2BqHngF"]];
     UIButton* bt = [UIButton buttonWithType:UIButtonTypeCustom];

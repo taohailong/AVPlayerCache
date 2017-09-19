@@ -22,6 +22,7 @@
     NSMutableArray* _requestArr;
     OSSpinLock oslock ;
     NSData* resourceData;
+    NSDictionary* _httpHeader;
 }
 
 
@@ -203,6 +204,16 @@
 - (void)networkReachable
 {
      [[NSNotificationCenter defaultCenter] postNotificationName:@"networkchanged" object:nil];
+}
+
+- (void)setHTTPHeaderField:(NSDictionary *)header{
+    _httpHeader = header;
+}
+
+#pragma mark ---- LoadRequest delegate
+
+- (void)videoLoaderConfigure:(NSMutableURLRequest *)request{
+    request.allHTTPHeaderFields = _httpHeader;
 }
 
 - (void)dealloc

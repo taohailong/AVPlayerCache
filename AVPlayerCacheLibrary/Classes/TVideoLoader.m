@@ -53,6 +53,10 @@
         [_request addValue:rangeStr forHTTPHeaderField:@"Range"];
 //        NSLog(@"http setRang %@",rangeStr);
     }
+    if ([_delegate respondsToSelector:@selector(videoLoaderConfigure:)]) {
+        [_delegate videoLoaderConfigure:_request];
+    }
+    
     _operateQueue = [[NSOperationQueue alloc]init];
       return self;
 }

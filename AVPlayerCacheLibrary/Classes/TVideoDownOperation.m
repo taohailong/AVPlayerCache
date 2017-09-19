@@ -93,16 +93,17 @@
         return;
     }
     
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:_downLoadUrl cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:_downLoadUrl cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
+    if (_startBk) {
+        _startBk(request);
+    }
     if (_range.length != 2) {
         NSString* rangeStr = [NSString stringWithFormat:@"bytes=%ld-%ld", _range.location+_cacheLength, _range.length+_range.location-1];
         [request addValue:rangeStr forHTTPHeaderField:@"Range"];
 //         NSLog(@"http setRang %@  operation %@",rangeStr,self);
     }
 
-    if (_startBk) {
-        _startBk(request);
-    }
+    
     NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     configuration.HTTPMaximumConnectionsPerHost = 6;
     _session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];

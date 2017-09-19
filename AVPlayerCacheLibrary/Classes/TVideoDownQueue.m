@@ -29,8 +29,8 @@
     _fileManager = fileManager;
     _requestUrl = url;
     self.assetResource = resource;
+     self.httpHeader = httpHead;
     [self addReuqestOperation];
-    self.httpHeader = httpHead;
       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(netWorkChangedNotic:) name:@"networkchanged" object:nil];
     
     return self;

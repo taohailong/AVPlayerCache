@@ -105,9 +105,10 @@
         else
         {
             TVideoDownOperation* requestOperation = [[TVideoDownOperation alloc]initWithUrl:_requestUrl withRange:NSMakeRange(start.unsignedIntegerValue, end.unsignedIntegerValue - start.unsignedIntegerValue + 1)];
-            requestOperation.httpHeader = self.httpHeader;
+//            requestOperation.httpHeader = self.httpHeader;
             __weak TVideoDownOperation* wRequestOperation = requestOperation;
-            [requestOperation setOperationStartBk:^{
+            [requestOperation setOperationStartBk:^(NSMutableURLRequest *request) {
+                request.allHTTPHeaderFields = wself.httpHeader;
                  wself.currentDownLoadOperation = wRequestOperation;
             }];
             

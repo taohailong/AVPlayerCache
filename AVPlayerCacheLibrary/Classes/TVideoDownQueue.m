@@ -11,7 +11,7 @@
 #import <libkern/OSAtomic.h>
 @interface TVideoDownQueue()
 @property(nonatomic,weak)TVideoDownOperation* currentDownLoadOperation;
-
+@property (nonatomic,copy) NSDictionary* httpHeader;
 @end
 @implementation TVideoDownQueue
 {
@@ -20,11 +20,8 @@
     TVideoFileManager* _fileManager;
     NSURL* _requestUrl;
 }
-@synthesize currentDownLoadOperation;
-@synthesize assetResource;
-@synthesize isNetworkError;
 
-- (instancetype)initWithFileManager:(TVideoFileManager *)fileManager WithLoadingRequest:(AVAssetResourceLoadingRequest *)resource loadingUrl:(NSURL*)url
+- (instancetype)initWithFileManager:(TVideoFileManager *)fileManager WithLoadingRequest:(AVAssetResourceLoadingRequest *)resource loadingUrl:(NSURL*)url withHttpHead:(NSDictionary *)httpHead
 {
     self = [super init];
     _downQueue = [[NSOperationQueue alloc]init];
@@ -33,7 +30,7 @@
     _requestUrl = url;
     self.assetResource = resource;
     [self addReuqestOperation];
-    
+    self.httpHeader = httpHead;
       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(netWorkChangedNotic:) name:@"networkchanged" object:nil];
     
     return self;
@@ -44,7 +41,6 @@
     NSAssert(request.dataRequest.requestedOffset == 0, @"reloadAssetResource error");
     NSUInteger offset = [self.currentDownLoadOperation requestOffset];
     NSUInteger length = [self.currentDownLoadOperation cacheLength];
-//    NSLog(@"reloadAssetResource currentDownLoadOperation %@ length %ld",self.currentDownLoadOperation,length);
     self.assetResource = request;
     NSData* temp = [_fileManager readTempFileDataWithOffset:offset length:length];
     [self.assetResource.dataRequest respondWithData:temp];
@@ -88,7 +84,6 @@
                         return;
                     }
                     data =  [wFileManager readTempFileDataWithOffset:startInteger length:bufSize];
-//                     NSLog(@"respondWithData from %ld-%ld",startInteger,bufSize);
                     [wself.assetResource.dataRequest respondWithData:data];
                     [NSThread sleepForTimeInterval:0.1];
                      startInteger = startInteger + bufSize;

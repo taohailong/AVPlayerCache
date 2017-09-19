@@ -11,8 +11,8 @@
 #import "TVideoFileManager.h"
 @interface TVideoDownQueue : NSObject
 @property (nonatomic,assign) BOOL isNetworkError;
-@property (nonatomic,copy) NSDictionary* httpHeader;
-- (instancetype)initWithFileManager:(TVideoFileManager *)fileManager WithLoadingRequest:(AVAssetResourceLoadingRequest *)resource loadingUrl:(NSURL*)url;
+
+- (instancetype)initWithFileManager:(TVideoFileManager *)fileManager WithLoadingRequest:(AVAssetResourceLoadingRequest *)resource loadingUrl:(NSURL*)url withHttpHead:(NSDictionary*)httpHead;
 - (AVAssetResourceLoadingRequest*)assetResource;
 - (void)sychronizeProcessToConfigure;
 - (void)cancelDownLoad;

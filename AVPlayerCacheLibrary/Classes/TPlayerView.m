@@ -9,7 +9,7 @@
 #import "TPlayerView.h"
 #import "TVideoLoadManager.h"
 #import "TVideoFileManager.h"
-@interface TPlayerView()
+@interface TPlayerView()<VideoLoadManagerProtocol>
 {
     NSUInteger _preSeekTime;
     TVideoLoadManager* _videoLoader;
@@ -138,10 +138,20 @@
     } else  {
         videoAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:[TVideoLoadManager encryptionDownLoadUrl:_videoUrl]]  options:nil];
         _videoLoader = [[TVideoLoadManager alloc]initWithFileName:_videoName];
+        _videoLoader.delegate = self;
         [videoAsset.resourceLoader setDelegate:_videoLoader queue:dispatch_get_global_queue(0, 0)];
     }
     return videoAsset;
 }
+
+#pragma mark - Load manager
+
+- (void)requestNetError{
+    NSLog(@"downLoad net work error");
+//    [_avPlayerItem.asset cancelLoading];
+    [_videoLoader cancelDownLoad];
+}
+
 
 - (NSTimeInterval)availableDuration
 {
@@ -227,6 +237,7 @@
             [self readyToPlay:playerItem];
         }else if ([playerItem status] == AVPlayerStatusFailed) {
             [self detectPlayerError:playerItem];
+            NSLog(@"player error is %@",playerItem.error);
         }else{
             NSLog(@"AVPlayerStatusUnknown ");
         }
@@ -417,8 +428,8 @@
         [self playerSeekToSecond:_preSeekTime];
         _preSeekTime = 0;
     }
-    if ( [self.delegate respondsToSelector:@selector(playerDataReadyDurationTime:)]) {
-        [self.delegate playerDataReadyDurationTime:totalSecond];
+    if ( [self.delegate respondsToSelector:@selector(playerVideoTotalTime:)]) {
+        [self.delegate playerVideoTotalTime:totalSecond];
     }
     if ([self.delegate respondsToSelector:@selector(playerAlreadToPlay)]) {
         [self.delegate playerAlreadToPlay];

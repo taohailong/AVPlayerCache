@@ -11,7 +11,6 @@
 @protocol PlayerDelegate <NSObject>
 @optional
 - (void)playerVideoTotalTime:(int64_t)seconds;
-- (void)playerDataReadyDurationTime:(int64_t)times;
 - (void)playerTimeObserverCallBack:(int64_t)currentSeconds;
 - (void)playerCacheDataRangeChangedCallBack:(int64_t)totalSeconds;
 - (void)playerStartLoadingCallBack;

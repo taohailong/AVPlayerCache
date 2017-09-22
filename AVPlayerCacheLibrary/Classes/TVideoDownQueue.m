@@ -31,7 +31,7 @@
     self.assetResource = resource;
      self.httpHeader = httpHead;
     [self addReuqestOperation];
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(netWorkChangedNotic:) name:@"networkchanged" object:nil];
+//      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(netWorkChangedNotic:) name:@"networkchanged" object:nil];
     
     return self;
 }
@@ -47,10 +47,10 @@
 }
 
 
-- (void)netWorkChangedNotic:(NSNotification*)notic
-{
-    self.currentDownLoadOperation.netReachable = true;
-}
+//- (void)netWorkChangedNotic:(NSNotification*)notic
+//{
+//    self.currentDownLoadOperation.netReachable = true;
+//}
 
 - (void)addReuqestOperation
 {
@@ -141,6 +141,9 @@
                     wself.currentDownLoadOperation = nil;
                 } else {
                   wself.isNetworkError = YES;
+                    if ([wself.delegate respondsToSelector:@selector(loadNetError:)]) {
+                        [wself.delegate loadNetError:wself];
+                    }
                 }
             }];
             [_downQueue addOperation:requestOperation];

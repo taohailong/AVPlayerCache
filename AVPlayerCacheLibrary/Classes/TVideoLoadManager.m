@@ -7,7 +7,6 @@
 //
 
 #import "TVideoLoadManager.h"
-#import "TVideoDownQueue.h"
 #import "TVideoFileManager.h"
 #import <libkern/OSAtomic.h>
 #import "TVideoDownOperation.h"
@@ -40,12 +39,21 @@
 + (NSString*)encryptionDownLoadUrl:(NSString *)url
 {
     if ([url hasPrefix:@"http"]) {
-        
         return [url substringFromIndex:4];
     }
     return nil;
 }
 
+- (void)cancelDownLoad{
+    OSSpinLockLock(&oslock);
+    for (TVideoDownQueue* temp in _requestArr) {
+        AVAssetResourceLoadingRequest * compare = [temp assetResource];
+          [compare finishLoadingWithError:nil];
+        [temp cancelDownLoad];
+    }
+    [_requestArr removeAllObjects];
+    OSSpinLockUnlock(&oslock);
+}
 
 - (BOOL)netWorkError
 {
@@ -93,6 +101,7 @@
     
     NSString* downUrl = [TVideoLoadManager decodeDownLoadUrl:loadingRequest.request.URL.absoluteString];
     TVideoDownQueue* downLoad = [[TVideoDownQueue alloc]initWithFileManager:_fileManager WithLoadingRequest:loadingRequest loadingUrl:[NSURL URLWithString:downUrl] withHttpHead:_httpHeader];
+    downLoad.delegate = self;
     [_requestArr addObject:downLoad];
      OSSpinLockUnlock(&oslock);
     
@@ -199,13 +208,21 @@
 
 }
 
-- (void)networkReachable
-{
-     [[NSNotificationCenter defaultCenter] postNotificationName:@"networkchanged" object:nil];
-}
+//- (void)networkReachable
+//{
+//     [[NSNotificationCenter defaultCenter] postNotificationName:@"networkchanged" object:nil];
+//}
 
 - (void)setHTTPHeaderField:(NSDictionary *)header{
     _httpHeader = header;
+}
+
+#pragma mark -DownloadQueue delegate
+
+- (void)loadNetError:(TVideoDownQueue *)downQueue{
+    if ([self.delegate respondsToSelector:@selector(requestNetError)]) {
+        [self.delegate requestNetError];
+    }
 }
 
 - (void)dealloc

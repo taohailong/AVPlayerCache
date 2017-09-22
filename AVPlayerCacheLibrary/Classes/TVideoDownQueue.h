@@ -9,13 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "TVideoFileManager.h"
+@class TVideoDownQueue;
+@protocol TVideoDownQueueProtocol <NSObject>
+@optional
+- (void)loadNetError:(TVideoDownQueue*)downQueue;
+@end
+
 @interface TVideoDownQueue : NSObject
 @property (nonatomic,assign) BOOL isNetworkError;
-
+@property(nonatomic,strong)AVAssetResourceLoadingRequest*assetResource;
+@property (nonatomic,weak) id<TVideoDownQueueProtocol>delegate;
 - (instancetype)initWithFileManager:(TVideoFileManager *)fileManager WithLoadingRequest:(AVAssetResourceLoadingRequest *)resource loadingUrl:(NSURL*)url withHttpHead:(NSDictionary*)httpHead;
 - (AVAssetResourceLoadingRequest*)assetResource;
 - (void)sychronizeProcessToConfigure;
 - (void)cancelDownLoad;
 - (void)reloadAssetResource:(AVAssetResourceLoadingRequest*)request;
-@property(nonatomic,strong)AVAssetResourceLoadingRequest*assetResource;
+
 @end

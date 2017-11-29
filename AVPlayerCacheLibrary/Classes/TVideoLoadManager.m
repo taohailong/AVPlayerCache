@@ -23,6 +23,7 @@
 }
 
 
+
 - (instancetype)initWithFileName:(NSString*)fileName
 {
     self = [super init];
@@ -48,7 +49,9 @@
     OSSpinLockLock(&oslock);
     for (TVideoDownQueue* temp in _requestArr) {
         AVAssetResourceLoadingRequest * compare = [temp assetResource];
-          [compare finishLoadingWithError:nil];
+        if (compare.isCancelled == NO && compare.isFinished == NO) {
+             [compare finishLoadingWithError:nil];
+        }
         [temp cancelDownLoad];
     }
     [_requestArr removeAllObjects];
@@ -67,16 +70,7 @@
 #if 1
 - (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
 {
-//     NSLog(@"loadingRequest %ld-%ld ", loadingRequest.dataRequest.requestedOffset,loadingRequest.dataRequest.requestedLength+loadingRequest.dataRequest.requestedOffset-1);
-    
-//    if (_requestArr.count == 1 && loadingRequest.dataRequest.requestedOffset == 0) {
-//        TVideoDownQueue* first = _requestArr.firstObject;
-//        if (first.assetResource.dataRequest.requestedLength == 2) {
-//            [first reloadAssetResource:loadingRequest];
-//            return YES;
-//        }
-//    }
-    
+//    NSLog(@"loadingRequest %ld-%ld ", loadingRequest.dataRequest.requestedOffset,loadingRequest.dataRequest.requestedLength+loadingRequest.dataRequest.requestedOffset-1);
     [self checkResourceLoader];
     if (loadingRequest.contentInformationRequest) {
         CFStringRef contentType = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, (__bridge CFStringRef)(@"video/mp4"), NULL);
@@ -104,9 +98,7 @@
     downLoad.delegate = self;
     [_requestArr addObject:downLoad];
      OSSpinLockUnlock(&oslock);
-    
     return YES;
-
  }
 
 
@@ -191,27 +183,20 @@
     OSSpinLockLock(&oslock);
     NSMutableArray* removeAr = [NSMutableArray arrayWithCapacity:0];
     for (TVideoDownQueue* temp in _requestArr) {
-        
         AVAssetResourceLoadingRequest * compare = [temp assetResource] ;
-        
-        [temp cancelDownLoad];
-        [temp sychronizeProcessToConfigure];
         if (compare.isCancelled || compare.isFinished) {
-            
+             [removeAr addObject:temp];
+            [temp cancelDownLoad];
+            [temp sychronizeProcessToConfigure];
         } else {
-            [compare finishLoadingWithError:nil];
-        }        
-        [removeAr addObject:temp];
+//            [compare finishLoadingWithError:nil];
+        }
     }
     [_requestArr removeObjectsInArray:removeAr];
     OSSpinLockUnlock(&oslock);
 
 }
 
-//- (void)networkReachable
-//{
-//     [[NSNotificationCenter defaultCenter] postNotificationName:@"networkchanged" object:nil];
-//}
 
 - (void)setHTTPHeaderField:(NSDictionary *)header{
     _httpHeader = header;

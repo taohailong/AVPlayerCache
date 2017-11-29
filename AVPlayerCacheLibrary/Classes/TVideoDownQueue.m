@@ -54,7 +54,14 @@
 
 - (void)addReuqestOperation
 {
-    NSArray* segmentArr = [_fileManager getSegmentsFromFile: NSMakeRange(self.assetResource.dataRequest.currentOffset, self.assetResource.dataRequest.requestedLength-self.assetResource.dataRequest.currentOffset+self.assetResource.dataRequest.requestedOffset)];
+    NSInteger requestLength = 0;
+    if (self.assetResource.dataRequest.requestsAllDataToEndOfResource == YES) {
+        requestLength = [_fileManager getFileLength] - 1;
+    }else{
+       requestLength = self.assetResource.dataRequest.requestedLength-self.assetResource.dataRequest.currentOffset+self.assetResource.dataRequest.requestedOffset;
+    }
+    
+    NSArray* segmentArr = [_fileManager getSegmentsFromFile: NSMakeRange(self.assetResource.dataRequest.currentOffset,requestLength) ];
 //    NSLog(@"read segmentArr %@   current offset %ld-%ld",segmentArr,self.assetResource.dataRequest.currentOffset,self.assetResource.dataRequest.requestedOffset+self.assetResource.dataRequest.requestedLength-1);
     
      __weak TVideoFileManager* wFileManager = _fileManager;

@@ -55,7 +55,7 @@
 - (void)addReuqestOperation
 {
     NSInteger requestLength = 0;
-    if (self.assetResource.dataRequest.requestsAllDataToEndOfResource == YES) {
+    if ([self.assetResource respondsToSelector:@selector(requestsAllDataToEndOfResource)] && self.assetResource.dataRequest.requestsAllDataToEndOfResource == YES) {
         requestLength = [_fileManager getFileLength] - 1;
     }else{
        requestLength = self.assetResource.dataRequest.requestedLength-self.assetResource.dataRequest.currentOffset+self.assetResource.dataRequest.requestedOffset;

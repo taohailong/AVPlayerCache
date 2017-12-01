@@ -547,6 +547,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AVPlayerCacheLibrary/AVPlayerCacheLibrary-Prefix.pch";
 				INFOPLIST_FILE = "AVPlayerCacheLibrary/AVPlayerCacheLibrary-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangzhantong.cars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -566,6 +567,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AVPlayerCacheLibrary/AVPlayerCacheLibrary-Prefix.pch";
 				INFOPLIST_FILE = "AVPlayerCacheLibrary/AVPlayerCacheLibrary-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangzhantong.cars;
 				PRODUCT_NAME = "$(TARGET_NAME)";

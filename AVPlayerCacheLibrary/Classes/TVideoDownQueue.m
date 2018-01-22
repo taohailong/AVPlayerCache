@@ -172,6 +172,7 @@
             [_downQueue cancelAllOperations];
             _downQueue = nil;
         }
+        self.assetResource = nil;
     }
 }
 

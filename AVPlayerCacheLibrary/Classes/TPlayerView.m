@@ -27,20 +27,16 @@
     id _playbackTimeObserver;
     BOOL _isMute;
     NSInteger _monitorTime;
+    dispatch_queue_t _serial;
 }
-- (instancetype)initWithFrame:(CGRect)frame videoUrl:(NSString *)url WithVideoName:(NSString *)videoName WithDelegate:(id<PlayerDelegate>)delegate
+- (instancetype)initWithFrame:(CGRect)frame withDelegate:(id<PlayerDelegate>)delegate
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
         self.delegate = delegate;
+       _serial = dispatch_queue_create("com.weibo.videoViewQueue", DISPATCH_QUEUE_SERIAL);
         // 监听播放结束
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
-        if (url == nil) {
-            return self;
-        }
-        _videoUrl = url;
-        _videoName = videoName;
     }
     return self;
 }
@@ -90,23 +86,25 @@
 
 - (void)initAVElements
 {
-    AVURLAsset *videoAsset = [self generateAVURLAsset];
-    if (videoAsset == nil){
-        [self playerStatusOccureError];
-        return;
-    }
-    [self removeAVObservers];
-    self.avPlayerItem = [AVPlayerItem playerItemWithAsset:videoAsset];
-    [self setupAVObserver:self.avPlayerItem];
-      __weak  TPlayerView* weak_self = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (weak_self.avPlayer == nil) {
-            weak_self.avPlayer = [AVPlayer playerWithPlayerItem:weak_self.avPlayerItem];
-            weak_self.avPlayer.muted = _isMute;
-             [(AVPlayerLayer*)[self layer] setPlayer:weak_self.avPlayer];
-        }else{
-            [weak_self.avPlayer replaceCurrentItemWithPlayerItem:weak_self.avPlayerItem];
+    dispatch_async(_serial, ^{
+        AVURLAsset *videoAsset = [self generateAVURLAsset];
+        if (videoAsset == nil){
+            [self playerStatusOccureError];
+            return;
         }
+        [self removeAVObservers];
+        self.avPlayerItem = [AVPlayerItem playerItemWithAsset:videoAsset];
+        [self setupAVObserver:self.avPlayerItem];
+        __weak  TPlayerView* weak_self = self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (weak_self.avPlayer == nil) {
+                weak_self.avPlayer = [AVPlayer playerWithPlayerItem:weak_self.avPlayerItem];
+                weak_self.avPlayer.muted = _isMute;
+                [(AVPlayerLayer*)[self layer] setPlayer:weak_self.avPlayer];
+            }else{
+                [weak_self.avPlayer replaceCurrentItemWithPlayerItem:weak_self.avPlayerItem];
+            }
+        });
     });
 }
 
@@ -114,14 +112,15 @@
 //    return _avView.contentMode;
 //}
 
-//- (void)setViewFillMode:(UIViewContentMode)mode
-//{
-//    if (mode == UIViewContentModeScaleAspectFit) {
-//        [_avView setVideoFillMode:AVLayerVideoGravityResizeAspect];
-//    } else if (mode == UIViewContentModeScaleAspectFill) {
-//        [_avView setVideoFillMode:AVLayerVideoGravityResizeAspectFill];
-//    }
-//}
+- (void)setViewFillMode:(UIViewContentMode)mode
+{
+    AVPlayerLayer *playerLayer = (AVPlayerLayer*)[self layer];
+    if (mode == UIViewContentModeScaleAspectFit) {
+        playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+    } else if (mode == UIViewContentModeScaleAspectFill) {
+         playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    }
+}
 
 
 #pragma mark - Helper
@@ -403,11 +402,6 @@
 
 - (void)readyToPlay:(AVPlayerItem *)playerItem
 {
-//    dispatch_time_t afterTime = dispatch_time(DISPATCH_TIME_NOW, 0.04*NSEC_PER_SEC);
-//    dispatch_after(afterTime, dispatch_get_main_queue(), ^{
-//        _avView.backgroundColor = [UIColor blackColor];
-//    });
-//    
     if (playerItem == nil || playerItem.duration.timescale == 0) {
         [self playerStatusOccureError];
         return;
@@ -495,18 +489,24 @@
 
 - (void)reset
 {
-    _videoLoader = nil;
-    if ([NSThread isMainThread] == NO) {
-        dispatch_sync(dispatch_get_main_queue(), ^{
-             [(AVPlayerLayer*)[self layer] setPlayer:nil];
-        });
-    }else{
-        [(AVPlayerLayer*)[self layer] setPlayer:nil];
-    }
-    [self removeAVObservers];
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
-    _isReadyToPlay = NO;
-//    _status = WKVideoViewStatusDefault;
+    dispatch_async(_serial, ^{
+        [_videoLoader cancelDownLoad];
+        _videoLoader = nil;
+        [self.avPlayerItem.asset cancelLoading];
+        AVURLAsset* temp = (AVURLAsset*)self.avPlayerItem.asset;
+        [temp.resourceLoader setDelegate:nil queue:nil];
+        if ([NSThread isMainThread] == NO) {
+            AVPlayerLayer* layer =  (AVPlayerLayer* )self.layer;
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [layer setPlayer:nil];
+            });
+        }else{
+            AVPlayerLayer* layer = (AVPlayerLayer* ) self.layer;
+            [layer setPlayer:nil];
+        }
+        [self removeAVObservers];
+        _isReadyToPlay = NO;
+    });
 }
 
 - (UIImage *)getVideoPlayerScreenshot {

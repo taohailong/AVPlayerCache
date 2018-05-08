@@ -27,7 +27,7 @@
 @property (nonatomic, weak) id<PlayerDelegate> delegate;
 
 
-- (instancetype)initWithFrame:(CGRect)frame videoUrl:(NSString *)url WithVideoName:(NSString *)videoName WithDelegate:(id<PlayerDelegate>)delegate;
+- (instancetype)initWithFrame:(CGRect)frame withDelegate:(id<PlayerDelegate>)delegate;
 - (void)loadVideoDataWithUrl:(NSString*)url withVideoName:(NSString*)videoName;
 
 //  加载视频

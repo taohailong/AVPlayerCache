@@ -60,11 +60,14 @@
 
 - (BOOL)netWorkError
 {
+    OSSpinLockLock(&oslock);
     for (TVideoDownQueue* temp in _requestArr) {
         if (temp.isNetworkError == YES) {
+             OSSpinLockUnlock(&oslock);
             return YES;
         }
     }
+     OSSpinLockUnlock(&oslock);
     return NO;
 }
 #if 1

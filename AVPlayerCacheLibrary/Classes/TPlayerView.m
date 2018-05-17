@@ -193,7 +193,7 @@
         self.avPlayerItem = nil;
     }
     
-    if (_playbackTimeObserver && self.avPlayer) {
+    if (_playbackTimeObserver) {
         [_avPlayer removeTimeObserver:_playbackTimeObserver];
         _playbackTimeObserver = nil;
     }
@@ -496,8 +496,8 @@
         AVURLAsset* temp = (AVURLAsset*)self.avPlayerItem.asset;
         [temp.resourceLoader setDelegate:nil queue:nil];
         if ([NSThread isMainThread] == NO) {
-            AVPlayerLayer* layer =  (AVPlayerLayer* )self.layer;
             dispatch_sync(dispatch_get_main_queue(), ^{
+                 AVPlayerLayer* layer =  (AVPlayerLayer* )self.layer;
                 [layer setPlayer:nil];
             });
         }else{
@@ -506,6 +506,7 @@
         }
         [self removeAVObservers];
         _isReadyToPlay = NO;
+        self.avPlayer = nil;
     });
 }
 

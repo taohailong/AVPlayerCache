@@ -406,7 +406,9 @@
         [self playerStatusOccureError];
         return;
     }
-    
+    if ([self.delegate respondsToSelector:@selector(playerAlreadToPlay)]) {
+        [self.delegate playerAlreadToPlay];
+    }
     [self start];
     
 //    _status = WKVideoViewStatusReady;
@@ -425,10 +427,7 @@
     if ( [self.delegate respondsToSelector:@selector(playerVideoTotalTime:)]) {
         [self.delegate playerVideoTotalTime:totalSecond];
     }
-    if ([self.delegate respondsToSelector:@selector(playerAlreadToPlay)]) {
-        [self.delegate playerAlreadToPlay];
-    }
-    
+
     //  添加定期观察者，更新播放进度UI
     [self monitoringPlayback:playerItem];
     

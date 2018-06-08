@@ -14,7 +14,8 @@
 - (void)playerTimeObserverCallBack:(int64_t)currentSeconds;
 - (void)playerCacheDataRangeChangedCallBack:(int64_t)totalSeconds;
 - (void)playerStartLoadingCallBack;
-- (void)playerAlreadToPlay;
+- (void)playerAlreadToPlay; // 可以获取到播放的视频信息了
+- (void)playerBeginDisplay; //视频开始播放了
 - (void)playerPlayCallBack;
 - (void)playerOccureErrorCallBack;
 - (void)playerPauseCallBack;

@@ -213,12 +213,14 @@
             [item addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
             [item addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
             [item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+            [self.layer addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionNew context:nil];
         });
     } else {
         [item addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:NSKeyValueObservingOptionNew context:nil];
         [item addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
         [item addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
         [item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+        [self.layer addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionNew context:nil];
     }
 }
 
@@ -228,6 +230,17 @@
     if (state != UIApplicationStateActive) {
         return;
     }
+    
+    if ([keyPath isEqualToString:@"readyForDisplay"]) {
+        AVPlayerLayer* layer = object;
+        if ( layer.readyForDisplay) {
+            if([self.delegate respondsToSelector:@selector(playerBeginDisplay)]){
+                [self.delegate playerBeginDisplay];
+            }
+        }
+        return;
+    }
+    
     AVPlayerItem *playerItem = (AVPlayerItem *)object;
     if ([keyPath isEqualToString:@"status"]) {
         
@@ -410,7 +423,8 @@
         [self.delegate playerAlreadToPlay];
     }
     [self start];
-    
+//    self.backgroundColor = [UIColor redColor];
+//    self.layer.backgroundColor = [UIColor redColor].CGColor;
 //    _status = WKVideoViewStatusReady;
     _isReadyToPlay = YES;
     

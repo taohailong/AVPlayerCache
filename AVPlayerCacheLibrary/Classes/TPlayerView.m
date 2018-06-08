@@ -37,6 +37,7 @@
        _serial = dispatch_queue_create("com.weibo.videoViewQueue", DISPATCH_QUEUE_SERIAL);
         // 监听播放结束
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+         [self.layer addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
@@ -220,7 +221,6 @@
         [item addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
         [item addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
         [item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-        [self.layer addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionNew context:nil];
     }
 }
 
@@ -540,6 +540,7 @@
 - (void)dealloc
 {
     [self removeAVObservers];
+    [self.layer removeObserver:self forKeyPath:@"readyForDisplay" context:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

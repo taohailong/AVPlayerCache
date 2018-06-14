@@ -26,4 +26,5 @@
 + (NSURL *)cacheFileExistsWithName:(NSString *)fileName;
 + (BOOL)hasFinishedVideoCache:(NSString*)fileName;
 + (BOOL)clearCache;
++ (NSString *)cacheFolderPath;
 @end

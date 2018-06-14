@@ -425,6 +425,7 @@ static NSString* VideoCachePath = nil;
     NSArray *allCachePaths =  NSSearchPathForDirectoriesInDomains(NSCachesDirectory,
                                                                   NSUserDomainMask, YES);
     NSString* cache = [[allCachePaths objectAtIndex:0] stringByAppendingPathComponent:@"video_cache"];
+    VideoCachePath = cache;
     return cache;
 //    return [[NSHomeDirectory( ) stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"VideoCaches"];
 }

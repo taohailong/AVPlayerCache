@@ -87,16 +87,19 @@
 
 - (void)initAVElements
 {
+     __weak  TPlayerView* weak_self = self;
     dispatch_async(_serial, ^{
         AVURLAsset *videoAsset = [self generateAVURLAsset];
         if (videoAsset == nil){
-            [self playerStatusOccureError];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 [weak_self playerStatusOccureError];
+            });
             return;
         }
         [self removeAVObservers];
         self.avPlayerItem = [AVPlayerItem playerItemWithAsset:videoAsset];
         [self setupAVObserver:self.avPlayerItem];
-        __weak  TPlayerView* weak_self = self;
+       
         dispatch_async(dispatch_get_main_queue(), ^{
             if (weak_self.avPlayer == nil) {
                 weak_self.avPlayer = [AVPlayer playerWithPlayerItem:weak_self.avPlayerItem];

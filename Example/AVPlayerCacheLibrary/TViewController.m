@@ -35,7 +35,7 @@
 //    _playerItem = [AVPlayerItem playerItemWithAsset:[self generatePlayItem:@"http://gslb.miaopai.com/stream/QgZbuZjY70~LOyicMJz9NQ__.mp4?yx=&KID=unistore,video&Expires=1488340984&ssig=9xbm%2BqHngF"]];
 //    http://us.sinaimg.cn/0042YuPwjx07fyprKe9101040100Wfxu0k01.mp4?label=mp4_hd&KID=unistore,video&Expires=1511351294&ssig=WqGRXnxe9w
     NSString* url = @"http://gslb.miaopai.com/stream/QgZbuZjY70~LOyicMJz9NQ__.mp4?yx=&KID=unistore,video&Expires=1488340984&ssig=9xbm%2BqHngF";
-//    NSString* url = @"http://gslb.miaopai.com/stream/ju1fBfPs7mz0uDkzpxrmIX4Hyqum1-lHAbqiIw__.mp4?yx=&KID=unistore,video&Expires=1513065957&ssig=a6UoZ3%2BB2q";
+//    url = @"http://alcdn.hls.xiaoka.tv/2018614/e11/279/usLFjccI7tBScB0P/index.m3u8?Expires=1528954910&ssig=qZXqmORrTY&KID=unistore,video";
     _player = [[TPlayerView alloc]initWithFrame:self.view.bounds withDelegate:self];
     [_player loadVideoDataWithUrl:url withVideoName:@"temp"];
     [self.view addSubview:_player];

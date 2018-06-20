@@ -277,7 +277,7 @@
             }
         }
         else {
-//            [self start];
+            [self start];
         }
     }
 }

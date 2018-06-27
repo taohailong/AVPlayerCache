@@ -98,10 +98,10 @@
     if (_startBk) {
         _startBk(request);
     }
-    if (_range.length != 2) {
+//    if (_range.length != 2) {
         NSString* rangeStr = [NSString stringWithFormat:@"bytes=%ld-%ld", _range.location+_cacheLength, _range.length+_range.location-1];
         [request addValue:rangeStr forHTTPHeaderField:@"Range"];
-    }
+//    }
 
 //     NSLog(@"http setRang %@  ",request.allHTTPHeaderFields);
     NSURLSessionConfiguration* configuration = [NSURLSessionConfiguration defaultSessionConfiguration];

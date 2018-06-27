@@ -226,17 +226,17 @@
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
   
 //    NSLog(@"alread down load %@ data from %ld-%ld  request %ld-%ld",self,_range.location,_range.location+_cacheLength-1,_range.location,_range.length-1);
-    if (error.code < 0 && error.code != -999) {
-   
-        if (_completeBk) {
-             _completeBk(error,_range.location,_cacheLength);
-        }
-        [_session finishTasksAndInvalidate]; //startRunLoop 注意顺序 否则 线程循环嵌套 导致内存无法释放
-//        [self startRunLoop];
-        sleep(5);
-        [self start];
-        return;
-    }
+//    if (error.code < 0 && error.code != -999) {
+//   
+//        if (_completeBk) {
+//             _completeBk(error,_range.location,_cacheLength);
+//        }
+//        [_session finishTasksAndInvalidate]; //startRunLoop 注意顺序 否则 线程循环嵌套 导致内存无法释放
+////        [self startRunLoop];
+//        sleep(5);
+//        [self start];
+//        return;
+//    }
     if (_completeBk) {
         _completeBk(nil,_range.location,_cacheLength);
     }

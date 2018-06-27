@@ -75,18 +75,18 @@
                 NSUInteger totalLength = end.unsignedIntegerValue - startInteger + 1;
                 NSData* data = nil;
                 
-                int bufSize = 1024000;
-                while (totalLength > bufSize) {
+//                int bufSize = 1024000;
+//                while (totalLength > bufSize) {
                     if (wself.assetResource.isCancelled || wself.assetResource.isFinished) {
                        [wself cancelDownLoad];
                         return;
                     }
-                    data =  [wself.fileManager readTempFileDataWithOffset:startInteger length:bufSize];
-                    [wself.assetResource.dataRequest respondWithData:data];
-                    [NSThread sleepForTimeInterval:0.1];
-                     startInteger = startInteger + bufSize;
-                    totalLength = totalLength - bufSize;
-                }
+//                    data =  [wself.fileManager readTempFileDataWithOffset:startInteger length:bufSize];
+//                    [wself.assetResource.dataRequest respondWithData:data];
+//                    [NSThread sleepForTimeInterval:0.1];
+//                     startInteger = startInteger + bufSize;
+//                    totalLength = totalLength - bufSize;
+//                }
                 data =  [wself.fileManager readTempFileDataWithOffset:startInteger length:totalLength];
                 [wself.assetResource.dataRequest respondWithData:data];
                 if ([wself getCurrentOperaton] == 1) {

@@ -21,6 +21,7 @@
 @implementation TPlayerView{
     BOOL _isObservered;
     BOOL _isReadyToPlay;
+    BOOL _isPaused;
     NSString* _videoName;
     NSString* _videoUrl;
     id _timeObserver;
@@ -132,7 +133,7 @@
 - (AVURLAsset *)generateAVURLAsset
 {
     AVURLAsset *videoAsset = nil;
-    if ([_videoUrl hasSuffix:@".m3u8"]) {
+    if ([_videoUrl containsString:@".m3u8"]) {
         videoAsset = [AVURLAsset assetWithURL:[NSURL URLWithString:_videoUrl]];
         return videoAsset;
     }
@@ -275,8 +276,7 @@
             } else {
                 [self playerStatusStartLoading];
             }
-        }
-        else {
+        }else if (_isPaused == NO) {
             [self start];
         }
     }
@@ -493,10 +493,12 @@
         }
         [self.avPlayer play];
     }
+      _isPaused = NO;
 }
 
 - (void)pause
 {
+      _isPaused = YES;
     if (self.avPlayerItem.status == AVPlayerStatusReadyToPlay) {
 //        _status = WKVideoViewStatusPause;
         [self.avPlayer pause];

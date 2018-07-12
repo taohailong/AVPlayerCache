@@ -41,7 +41,7 @@
 - (void)setVolume:(CGFloat)volume;
 - (void)start;
 - (void)pause;
-//- (void)setViewFillMode:(UIViewContentMode)mode;
+- (void)setViewFillMode:(UIViewContentMode)mode;
 //- (UIViewContentMode)playerContentMode;
 - (void)reset;
 - (UIImage *)getVideoPlayerScreenshot;

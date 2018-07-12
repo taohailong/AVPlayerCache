@@ -38,7 +38,9 @@
        _serial = dispatch_queue_create("com.weibo.videoViewQueue", DISPATCH_QUEUE_SERIAL);
         // 监听播放结束
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
-         [self.layer addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionNew context:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayDidBegin:) name: (__bridge NSString *)kCMTimebaseNotification_EffectiveRateChanged object:nil];
+        
+//         [self.layer addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
@@ -104,6 +106,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (weak_self.avPlayer == nil) {
                 weak_self.avPlayer = [AVPlayer playerWithPlayerItem:weak_self.avPlayerItem];
+                [weak_self.avPlayer addObserver:weak_self forKeyPath:@"timeControlStatus" options:NSKeyValueObservingOptionNew context:nil];
                 weak_self.avPlayer.muted = _isMute;
                 [(AVPlayerLayer*)[self layer] setPlayer:weak_self.avPlayer];
             }else{
@@ -218,7 +221,6 @@
             [item addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
             [item addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
             [item addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-            [self.layer addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionNew context:nil];
         });
     } else {
         [item addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:NSKeyValueObservingOptionNew context:nil];
@@ -235,9 +237,9 @@
         return;
     }
     
-    if ([keyPath isEqualToString:@"readyForDisplay"]) {
-        AVPlayerLayer* layer = object;
-        if ( layer.readyForDisplay) {
+    if ([keyPath isEqualToString:@"timeControlStatus"]) {
+        AVPlayer* player = object;
+        if ( player.timeControlStatus == AVPlayerTimeControlStatusPlaying) {
             if([self.delegate respondsToSelector:@selector(playerBeginDisplay)]){
                 [self.delegate playerBeginDisplay];
             }
@@ -559,7 +561,13 @@
     }
 }
 
-
+- (void)videoPlayDidBegin:(NSNotification*)notification{
+    if (CMTimebaseGetRate(_avPlayerItem.timebase)) {
+        if([self.delegate respondsToSelector:@selector(playerBeginDisplay)]){
+                [self.delegate playerBeginDisplay];
+        }
+    }
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

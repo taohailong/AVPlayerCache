@@ -38,9 +38,6 @@
        _serial = dispatch_queue_create("com.weibo.videoViewQueue", DISPATCH_QUEUE_SERIAL);
         // 监听播放结束
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayDidEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(videoPlayDidBegin:) name: (__bridge NSString *)kCMTimebaseNotification_EffectiveRateChanged object:nil];
-        
-//         [self.layer addObserver:self forKeyPath:@"readyForDisplay" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
@@ -526,6 +523,7 @@
         }
         [self removeAVObservers];
         _isReadyToPlay = NO;
+         [self.avPlayer removeObserver:self forKeyPath:@"timeControlStatus"];
         self.avPlayer = nil;
     });
 }
@@ -558,14 +556,6 @@
     }
     if ([self.delegate respondsToSelector:@selector(playerPlayOver)]) {
         [self.delegate playerPlayOver];
-    }
-}
-
-- (void)videoPlayDidBegin:(NSNotification*)notification{
-    if (CMTimebaseGetRate(_avPlayerItem.timebase)) {
-        if([self.delegate respondsToSelector:@selector(playerBeginDisplay)]){
-                [self.delegate playerBeginDisplay];
-        }
     }
 }
 /*

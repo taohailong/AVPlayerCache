@@ -39,14 +39,14 @@
 //  视频播放控制
 - (BOOL)isMute;
 - (void)setVolume:(CGFloat)volume;
-- (void)start;
+- (void)play;
 - (void)pause;
 - (void)setViewFillMode:(UIViewContentMode)mode;
-//- (UIViewContentMode)playerContentMode;
+
 - (void)reset;
 - (UIImage *)getVideoPlayerScreenshot;
 - (void)playerSeekToSecond:(float)value;
 - (void)setVideoMonitorTime:(NSUInteger)seconds;
-
+//- (UIViewContentMode)playerContentMode;
 //- (void)setVideoFillMode:(NSString *)fillMode;
 @end

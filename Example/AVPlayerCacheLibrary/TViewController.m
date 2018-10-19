@@ -100,6 +100,9 @@
     timeProgress.maximumValue = seconds;
 }
 
+- (void)playerPlayOver{
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
